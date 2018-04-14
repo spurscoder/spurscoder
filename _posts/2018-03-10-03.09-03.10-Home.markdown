@@ -51,9 +51,7 @@ tags:
 
   ```python
   model.save('/model/word2vec.model')
-
   new_model = gensim.models.Word2Vec.load('/model/word2vec.model')
-
   new_model['computer']
   ```
 
@@ -150,7 +148,6 @@ tags:
         	MaxHeapify(array, heapSize, largest);
         }
       }
-
       // goujian dagendui 
       void MaxHeapCreat(uint32_t* array, uint32_t heapSize)
       {
@@ -181,7 +178,6 @@ tags:
       		MinHeapify(array, heapSize, minimun);
       	}
       }
-
       // goujian minheap
       void MinHeapCreat(uint32_t* array, uint32_t heapSize)
       {

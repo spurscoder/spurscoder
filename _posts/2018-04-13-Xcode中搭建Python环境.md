@@ -40,7 +40,7 @@ defaults write com.apple.finder AppleShowAllFiles No && killall Finder //不显�
 
 ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/python_xcode/7.png)
 
- ####第三步，Produce >> Scheme >> Edit Scheme
+#### 第三步，Produce >> Scheme >> Edit Scheme
 
 ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/python_xcode/8.png)
 
