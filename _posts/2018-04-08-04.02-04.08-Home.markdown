@@ -405,98 +405,94 @@ delete[] p;
 
 - inline函数
 
-*函数调用是有时间和空间开销的。*程序在执行一个函数之前需要做一些准备工作，要将实参、局部变量、返回地址以及若干寄存器都压入栈中，然后才能执行函数体中的代码；函数体中的代码执行完毕后还要清理现场，将之前压入栈中的数据都出栈，才能接着执行函数调用位置以后的代码
+	*函数调用是有时间和空间开销的。*程序在执行一个函数之前需要做一些准备工作，要将实参、局部变量、返回地址以及若干寄存器都压入栈中，然后才能执行函数体中的代码；函数体中的代码执行完毕后还要清理现场，将之前压入栈中的数据都出栈，才能接着执行函数调用位置以后的代码
 
-```
-#include <iostream>
-using namespace std;
-//内联函数，交换两个数的值
-inline void swap(int *a, int *b){
-    int temp;
-    temp = *a;
-    *a = *b;
-    *b = temp;
-}
-int main(){
-    int m, n;
-    cin>>m>>n;
-    cout<<m<<", "<<n<<endl;
-    swap(&m, &n);
-    cout<<m<<", "<<n<<endl;
-    return 0;
-}
-```
+	```
+	#include <iostream>
+	using namespace std;
+	//内联函数，交换两个数的值
+	inline void swap(int *a, int *b){
+	    int temp;
+	    temp = *a;
+	    *a = *b;
+	    *b = temp;
+	}
+	int main(){
+	    int m, n;
+	    cin>>m>>n;
+	    cout<<m<<", "<<n<<endl;
+	    swap(&m, &n);
+	    cout<<m<<", "<<n<<endl;
+	    return 0;
+	}
+	```
 
-**注意，要在函数定义处添加 inline 关键字，在函数声明处添加 inline 关键字虽然没有错，但这种做法是无效的，编译器会忽略函数声明处的 inline 关键字。**
+	**注意，要在函数定义处添加 inline 关键字，在函数声明处添加 inline 关键字虽然没有错，但这种做法是无效的，编译器会忽略函数声明处的 inline 关键字。**
 
-*由于内联函数比较短小，我们通常的做法是省略函数原型，将整个函数定义（包括函数头和函数体）放在本应该提供函数原型的地方。*下面的例子是一个反面教材，这样的写法是不被推荐的：
+	*由于内联函数比较短小，我们通常的做法是省略函数原型，将整个函数定义（包括函数头和函数体）放在本应该提供函数原型的地方。*下面的例子是一个反面教材，这样的写法是不被推荐的：
 
-```
-#include <iostream>
-using namespace std;
-//声明内联函数
-void swap1(int *a, int *b);  //也可以添加inline，但编译器会忽略
-int main(){
-    int m, n;
-    cin>>m>>n;
-    cout<<m<<", "<<n<<endl;
-    swap1(&m, &n);
-    cout<<m<<", "<<n<<endl;
-    return 0;
-}
-//定义内联函数
-inline void swap1(int *a, int *b){
-    int temp;
-    temp = *a;
-    *a = *b;
-    *b = temp;
-}
-```
+	```
+	#include <iostream>
+	using namespace std;
+	//声明内联函数
+	void swap1(int *a, int *b);  //也可以添加inline，但编译器会忽略
+	int main(){
+	    int m, n;
+	    cin>>m>>n;
+	    cout<<m<<", "<<n<<endl;
+	    swap1(&m, &n);
+	    cout<<m<<", "<<n<<endl;
+	    return 0;
+	}
+	//定义内联函数
+	inline void swap1(int *a, int *b){
+	    int temp;
+	    temp = *a;
+	    *a = *b;
+	    *b = temp;
+	}
+	```
 
-使用内联函数的缺点也是非常明显的，编译后的程序会存在多份相同的函数拷贝，如果被声明为内联函数的函数体非常大，那么编译后的程序体积也将会变得很大，所以再次强调，一般只将那些短小的、频繁调用的函数声明为内联函数。
+	使用内联函数的缺点也是非常明显的，编译后的程序会存在多份相同的函数拷贝，如果被声明为内联函数的函数体非常大，那么编译后的程序体积也将会变得很大，所以再次强调，一般只将那些短小的、频繁调用的函数声明为内联函数。
 
-**最后需要说明的是，对函数作 inline 声明只是程序员对编译器提出的一个建议，而不是强制性的，并非一经指定为 inline 编译器就必须这样做。编译器有自己的判断能力，它会根据具体情况决定是否这样做。**
+	**最后需要说明的是，对函数作 inline 声明只是程序员对编译器提出的一个建议，而不是强制性的，并非一经指定为 inline 编译器就必须这样做。编译器有自己的判断能力，它会根据具体情况决定是否这样做。**
 
 - 重载
 
-重载就是在一个作用范围内（同一个类、同一个命名空间等）有多个名称相同但参数不同的函数。重载的结果是让一个函数名拥有了多种用途，使得命名更加方便（在中大型项目中，给变量、函数、类起名字是一件让人苦恼的问题），调用更加灵活。
+	重载就是在一个作用范围内（同一个类、同一个命名空间等）有多个名称相同但参数不同的函数。重载的结果是让一个函数名拥有了多种用途，使得命名更加方便（在中大型项目中，给变量、函数、类起名字是一件让人苦恼的问题），调用更加灵活。
 
-在使用重载函数时，同名函数的功能应当相同或相近，不要用同一函数名去实现完全不相干的功能，虽然程序也能运行，但可读性不好，使人觉得莫名其妙。
+	在使用重载函数时，同名函数的功能应当相同或相近，不要用同一函数名去实现完全不相干的功能，虽然程序也能运行，但可读性不好，使人觉得莫名其妙。
 
-**注意，参数列表不同包括参数的个数不同、类型不同或顺序不同，仅仅参数名称不同是不可以的。函数返回值也不能作为重载的依据。**
+	**注意，参数列表不同包括参数的个数不同、类型不同或顺序不同，仅仅参数名称不同是不可以的。函数返回值也不能作为重载的依据。**
 
-```
-#include <iostream>
-using namespace std;
-
-//交换 int 变量的值
-void Swap(int *a, int *b){
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
-//交换 float 变量的值
-void Swap(float *a, float *b){
-    float temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
-//交换 char 变量的值
-void Swap(char *a, char *b){
-    char temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
-//交换 bool 变量的值
-void Swap(bool *a, bool *b){
-    char temp = *a;
-    *a = *b;
-    *b = temp;
-}
-```
+	```
+	#include <iostream>
+	using namespace std;
+	//交换 int 变量的值
+	void Swap(int *a, int *b){
+	    int temp = *a;
+	    *a = *b;
+	    *b = temp;
+	}
+	//交换 float 变量的值
+	void Swap(float *a, float *b){
+	    float temp = *a;
+	    *a = *b;
+	    *b = temp;
+	}
+	//交换 char 变量的值
+	void Swap(char *a, char *b){
+	    char temp = *a;
+	    *a = *b;
+	    *b = temp;
+	}
+	//交换 bool 变量的值
+	void Swap(bool *a, bool *b){
+	    char temp = *a;
+	    *a = *b;
+	    *b = temp;
+	}
+	```
 
 - this 关键字
 
@@ -541,51 +537,51 @@ void Swap(bool *a, bool *b){
 
   和静态成员变量类似，静态成员函数在声明时要加 static，在定义时不能加 static。静态成员函数可以通过类来调用（一般都是这样做），也可以通过对象来调用，上例仅仅演示了如何通过类来调用。
 
-```c++
-#include <iostream>
-using namespace std;
-class Student{
-public:
-    Student(char *name, int age, float score);
-    void show();
-public:  //声明静态成员函数
-    static int getTotal();
-    static float getPoints();
-private:
-    static int m_total;  //总人数
-    static float m_points;  //总成绩
-private:
-    char *m_name;
-    int m_age;
-    float m_score;
-};
-int Student::m_total = 0;
-float Student::m_points = 0.0;
-Student::Student(char *name, int age, float score): m_name(name), m_age(age), m_score(score){
-    m_total++;
-    m_points += score;
-}
-void Student::show(){
-    cout<<m_name<<"的年龄是"<<m_age<<"，成绩是"<<m_score<<endl;
-}
-//定义静态成员函数
-int Student::getTotal(){
-    return m_total;
-}
-float Student::getPoints(){
-    return m_points;
-}
-int main(){
-    (new Student("小明", 15, 90.6)) -> show();
-    (new Student("李磊", 16, 80.5)) -> show();
-    (new Student("张华", 16, 99.0)) -> show();
-    (new Student("王康", 14, 60.8)) -> show();
-    int total = Student::getTotal();
-    float points = Student::getPoints();
-    cout<<"当前共有"<<total<<"名学生，总成绩是"<<points<<"，平均分是"<<points/total<<endl;
-    return 0;
-}
-```
+	```c++
+	#include <iostream>
+	using namespace std;
+	class Student{
+	public:
+	    Student(char *name, int age, float score);
+	    void show();
+	public:  //声明静态成员函数
+	    static int getTotal();
+	    static float getPoints();
+	private:
+	    static int m_total;  //总人数
+	    static float m_points;  //总成绩
+	private:
+	    char *m_name;
+	    int m_age;
+	    float m_score;
+	};
+	int Student::m_total = 0;
+	float Student::m_points = 0.0;
+	Student::Student(char *name, int age, float score): m_name(name), m_age(age), m_score(score){
+	    m_total++;
+	    m_points += score;
+	}
+	void Student::show(){
+	    cout<<m_name<<"的年龄是"<<m_age<<"，成绩是"<<m_score<<endl;
+	}
+	//定义静态成员函数
+	int Student::getTotal(){
+	    return m_total;
+	}
+	float Student::getPoints(){
+	    return m_points;
+	}
+	int main(){
+	    (new Student("小明", 15, 90.6)) -> show();
+	    (new Student("李磊", 16, 80.5)) -> show();
+	    (new Student("张华", 16, 99.0)) -> show();
+	    (new Student("王康", 14, 60.8)) -> show();
+	    int total = Student::getTotal();
+	    float points = Student::getPoints();
+	    cout<<"当前共有"<<total<<"名学生，总成绩是"<<points<<"，平均分是"<<points/total<<endl;
+	    return 0;
+	}
+	```
 
 - const关键字
 
