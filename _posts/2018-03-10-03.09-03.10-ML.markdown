@@ -4,13 +4,11 @@ title: "03.09到03.10.machinelearning"
 author: "Spurs"
 date: 2018-03-10 12:00:00
 tags:
-  - dinary
-  - everyday
 ---
 
-[TOC]
+> 03.09到03.10.machinelearning
 
-# MachineLearning
+<!-- more -->
 
 ## 2018-03-08
 
@@ -92,13 +90,13 @@ tags:
 - How to implement a neural network [intermezzo 2](https://peterroelants.github.io/posts/neural_network_implementation_intermezzo02/)
 - How to implement a neural network [Vectorization](https://peterroelants.github.io/posts/neural_network_implementation_part04/)
 - How to implement a neural network [Generalization of multiple layers](https://peterroelants.github.io/posts/neural_network_implementation_part05/)
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-0.JPG)
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-1.JPG)
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-2.JPG)
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-4.JPG)
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-5.JPG)
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-6.JPG)
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-7.JPG)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/2018-03-11-0.JPG)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/2018-03-11-1.JPG)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/2018-03-11-2.JPG)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/2018-03-11-4.JPG)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/2018-03-11-5.JPG)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/2018-03-11-6.JPG)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/2018-03-11-7.JPG)
 
 ## 2018-03-11
 

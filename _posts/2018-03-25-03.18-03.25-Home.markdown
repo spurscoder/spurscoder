@@ -188,7 +188,7 @@ tags:
 
 ###简单说一下$sigmoid$激活函数
 
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/sigmoid.png)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/sigmoid.png)
 - 常见的非线性激活函数$sigmoid、tanh、relu$等，前两者常见于全连接层，后者常见于卷积层 
 - $sigmoid$函数的功能相当于把一个实数压缩到0-1之间。当z是非常大的正数时，$g(z)$会趋近于1，而z是非常小的负数时，则$g(z)$是会趋近于0.
 - 压缩的好处是可以将激活函数看作是一种“分类的概率”。
@@ -200,7 +200,7 @@ tags:
 
 ###说说梯度下降算法
 
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/machinelearning.png)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/machinelearning.png)
 - 上面是一个典型的机器学习的过程，首先给出一个输入数据，我们的算法会通过一系列的过程得到一个估计函数，这个函数有能力对没有见过的新数据给出一个新的估计，也被称为构建一个模型。
 - 建立模型的过程中涉及到了目标函数，损失函数，梯度求解过程。
 - 梯度下降法的流程如下：
@@ -218,7 +218,7 @@ tags:
     - 如果存在多个局部极小值，很难保证找到全局最小值
   - 随机梯度下降法：根据每个单独的训练样本来更新权值
   - 批量梯度下降算法：不是整体的样本而是随机选择m个样本来进行梯度更新。
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/gradient_descent.png)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/gradient_descent.png)
 
 ## 03-21
 

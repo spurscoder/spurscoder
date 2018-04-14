@@ -4,11 +4,11 @@ title: "After ubuntu installed"
 author: "Spurs"
 date: 2018-01-25 12:00:00
 tags:
-  - dinary
-  - everyday
 ---
 
+> After ubuntu installed
 
+<!-- more -->
 
 ## Ubuntu 安装后需要做的一些事
 

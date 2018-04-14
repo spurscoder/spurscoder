@@ -1,6 +1,9 @@
 <center>**最近看各种机器学习算法，感觉没有实战，总是空空的。刚好这个月没什么事情，趁此机会拿[赛题](https://tianchi.shuju.aliyun.com/getStart/information.htm?spm=5176.100067.5678.2.SfEzJi&raceId=231593)练习一下。**</center>
 
+<!-- more -->
+
 ## 1. 资料整理
+
 * [阿里天池O2O优惠券消费行为预测竞赛优胜方案](https://github.com/wepe/O2O-Coupon-Usage-Forecast)。第一名。北大。解题思路。
 * [O2O优惠券使用预测思路总结](http://blog.csdn.net/shine19930820/article/details/53995369)。16名。解题思路。
 * [O2O优惠券使用预测复赛第三名思路](http://blog.csdn.net/bryan__/article/details/53907292)。3名。PPT.
@@ -33,48 +36,48 @@
 
 <center>TABLE 1： 用户线下消费和优惠券领取行为 </center>
 
-| Field | Description |
-| :-----: | :-----------: |
-| User_id | 用户ID    |
-| Merchant_id | 商户ID |
-| Coupon_id | 优惠券ID：null表示无优惠券消费，此时Discount_rate和Date_received字段无意义 |
-| Discount_rate | 优惠率：x \in [0,1]代表折扣率；x:y表示满x减y。单位是元|
-| Distance | user经常活动的地点离该merchant的最近门店距离是x\*500米（如果是连锁店，则取最近的一家门店），x\in[0,10]；null表示无此信息，0表示低于500米，10表示大于5公里；|
-| Date_received | 领取优惠券日期 |
-| Date | 消费日期：如果Date=null & Coupon_id != null，该记录表示领取优惠券但没有使用，即负样本；如果Date!=null & Coupon_id = null，则表示普通消费日期；如果Date!=null & Coupon_id != null，则表示用优惠券消费日期，即正样本； |
+|     Field     |               Description                |
+| :-----------: | :--------------------------------------: |
+|    User_id    |                   用户ID                   |
+|  Merchant_id  |                   商户ID                   |
+|   Coupon_id   | 优惠券ID：null表示无优惠券消费，此时Discount_rate和Date_received字段无意义 |
+| Discount_rate |   优惠率：x \in [0,1]代表折扣率；x:y表示满x减y。单位是元    |
+|   Distance    | user经常活动的地点离该merchant的最近门店距离是x\*500米（如果是连锁店，则取最近的一家门店），x\in[0,10]；null表示无此信息，0表示低于500米，10表示大于5公里； |
+| Date_received |                 领取优惠券日期                  |
+|     Date      | 消费日期：如果Date=null & Coupon_id != null，该记录表示领取优惠券但没有使用，即负样本；如果Date!=null & Coupon_id = null，则表示普通消费日期；如果Date!=null & Coupon_id != null，则表示用优惠券消费日期，即正样本； |
 
 <center>Table 2: 用户线上点击/消费和优惠券领取行为 </center>
 
-Field	| Description
-:-: | :-:
-User_id | 用户ID
-Merchant_id | 商户ID
-Action | 0 点击， 1购买，2领取优惠券
-Coupon_id | 优惠券ID：null表示无优惠券消费，此时Discount_rate和Date_received字段无意义。“fixed”表示该交易是限时低价活动。
-Discount_rate | 优惠率：x \in [0,1]代表折扣率；x:y表示满x减y；“fixed”表示低价限时优惠；
-Date_received | 领取优惠券日期
-Date | 消费日期：如果Date=null & Coupon_id != null，该记录表示领取优惠券但没有使用；如果Date!=null & Coupon_id = null，则表示普通消费日期；如果Date!=null & Coupon_id != null，则表示用优惠券消费日期；
+|     Field     |               Description                |
+| :-----------: | :--------------------------------------: |
+|    User_id    |                   用户ID                   |
+|  Merchant_id  |                   商户ID                   |
+|    Action     |             0 点击， 1购买，2领取优惠券             |
+|   Coupon_id   | 优惠券ID：null表示无优惠券消费，此时Discount_rate和Date_received字段无意义。“fixed”表示该交易是限时低价活动。 |
+| Discount_rate | 优惠率：x \in [0,1]代表折扣率；x:y表示满x减y；“fixed”表示低价限时优惠； |
+| Date_received |                 领取优惠券日期                  |
+|     Date      | 消费日期：如果Date=null & Coupon_id != null，该记录表示领取优惠券但没有使用；如果Date!=null & Coupon_id = null，则表示普通消费日期；如果Date!=null & Coupon_id != null，则表示用优惠券消费日期； |
 
 <center>Table 3:用户O2O线下优惠券使用预测样本</center>
 
-Field	| Description
-:-: | :-:
-User_id | 用户ID
-Merchant_id | 商户ID
-Coupon_id | 优惠券ID
-Discount_rate | 优惠率：x \in [0,1]代表折扣率；x:y表示满x减y.
-Distance | user经常活动的地点离该merchant的最近门店距离是x\*500米（如果是连锁店，则取最近的一家门店），x\in[0,10]；null表示无此信息，0表示低于500米，10表示大于5公里；
-Date_received | 领取优惠券日期
+|     Field     |               Description                |
+| :-----------: | :--------------------------------------: |
+|    User_id    |                   用户ID                   |
+|  Merchant_id  |                   商户ID                   |
+|   Coupon_id   |                  优惠券ID                   |
+| Discount_rate |     优惠率：x \in [0,1]代表折扣率；x:y表示满x减y.      |
+|   Distance    | user经常活动的地点离该merchant的最近门店距离是x\*500米（如果是连锁店，则取最近的一家门店），x\in[0,10]；null表示无此信息，0表示低于500米，10表示大于5公里； |
+| Date_received |                 领取优惠券日期                  |
 
 <center>Table 4:选手提交文件字段
 其中user_id,coupon_id和date_received均来自Table 3,而Probability为预测值</center>
 
-Field	| Description
-:-: | :-:
-User_id | 用户ID
-Coupon_id | 优惠券ID
-Date_received | 领取优惠券日期
-Probability | 15天内用券概率，由参赛选手给出
+|     Field     |   Description    |
+| :-----------: | :--------------: |
+|    User_id    |       用户ID       |
+|   Coupon_id   |      优惠券ID       |
+| Date_received |     领取优惠券日期      |
+|  Probability  | 15天内用券概率，由参赛选手给出 |
 ### 4.0.0.2. 数据分析
 ## 4.0.1. 初步分析
 #### TABLE 1 分析
@@ -94,28 +97,28 @@ Probability | 15天内用券概率，由参赛选手给出
     * 总结：有可能用户会根据优惠率来决定是否进行消费
 * 分析3：距离
     * 离用户近的门店可能会总领取优惠券，但不一定会使用。
-	* 离用户远的门店如果有优惠券，则可能会为了很大的优惠率专程去使用。
+    * 离用户远的门店如果有优惠券，则可能会为了很大的优惠率专程去使用。
 * 总结
     * 本数据集主要刻画线下用户特征。
 
 #### TABLE 2 分析
 * 特点：
-	* 标题：用户线上点击/消费和优惠券领取行为
-	* 场景：线上
-	* 行为：点击、消费、优惠券领取
-	* 数据：用户是否点击。购买。领取优惠券。
+  * 标题：用户线上点击/消费和优惠券领取行为
+  * 场景：线上
+  * 行为：点击、消费、优惠券领取
+  * 数据：用户是否点击。购买。领取优惠券。
 * 分析1：用户行为有三种情况
-	* 领了优惠券 && 未消费 = 负样本（Date=null & Coupon_id != null）
-	* 没领优惠券 && 已消费 （Date!=null & Coupon_id = null）
-	* 领了优惠券 && 已消费 （Date!=null & Coupon_id != null）
+  * 领了优惠券 && 未消费 = 负样本（Date=null & Coupon_id != null）
+  * 没领优惠券 && 已消费 （Date!=null & Coupon_id = null）
+  * 领了优惠券 && 已消费 （Date!=null & Coupon_id != null）
 * 分析2：用户点击、消费、优惠券情况
-	* 用户点击了 && 没领优惠券 && 未消费 = 负样本
-	* 用户点击了 && 领了优惠券 && 未消费
-	* 用户点击了 && 领了优惠券 && 已消费
-	* 用户点击了 && 没领优惠券 && 已消费
-	* 用户没点击
+  * 用户点击了 && 没领优惠券 && 未消费 = 负样本
+  * 用户点击了 && 领了优惠券 && 未消费
+  * 用户点击了 && 领了优惠券 && 已消费
+  * 用户点击了 && 没领优惠券 && 已消费
+  * 用户没点击
 * 总结
-	* 本数据集主要刻画线上用户特征。
+  * 本数据集主要刻画线上用户特征。
 
 #### Table 3：用户O2O线下优惠券使用预测样本
 

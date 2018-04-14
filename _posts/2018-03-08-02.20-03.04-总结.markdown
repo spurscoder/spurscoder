@@ -4,11 +4,11 @@ title: "2018-02-20到2018-03-04的总结"
 author: "Spurs"
 date: 2018-03-08 12:00:00
 tags:
-  - dinary
-  - everyday
 ---
 
-[TOC]
+> 2018-02-20到2018-03-04的总结
+
+<!-- more -->
 
 ### 2018-02-20
 
@@ -90,15 +90,15 @@ tags:
 
 - Emsemble can be done using three methods called 
 
-  - bagging![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/bagging.jpg)
+  - bagging![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/bagging.jpg)
 
   - boosting
 
-    ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/boosting.jpg)
+    ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/boosting.jpg)
 
   - stacking
 
-    ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/stacking.jpg)
+    ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/stacking.jpg)
 
 - [**Coding theory**](https://en.wikipedia.org/wiki/Coding_theory) is the study of the properties of [codes](https://en.wikipedia.org/wiki/Code) and their respective fitness for specific applications. Codes are used for [data compression](https://en.wikipedia.org/wiki/Data_compression), [cryptography](https://en.wikipedia.org/wiki/Cryptography), [error-correction](https://en.wikipedia.org/wiki/Error-correction), and [networking](https://en.wikipedia.org/wiki/Network_coding). 
 
