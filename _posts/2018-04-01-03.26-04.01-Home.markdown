@@ -24,9 +24,9 @@ tags:
 - 结构风险是在经验风险的基础上加上表示模型复杂度的正则化项。
 - **这样，监督学习问题就变成了经验风险或结构风险最优化的问题。**
 
-![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/lost1.jpg)
+![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/lost1.jpg)
 
-![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/lost2.jpg)
+![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/lost2.jpg)
 
 ### 简单介绍以下逻辑回归
 
@@ -38,7 +38,7 @@ tags:
 - 凡是hashmap、hashset等带有hash字眼的都是基于hashtable实现的，
 - 没带hash字眼的set、map等都是基于红黑树实现的，
 - 前者无序，后者有序。
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/hash.jpg)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/hash.jpg)
 
 ### 分类问题中，经常遇到正负样本数据量不均衡的问题，有什么[处理方法](https://www.analyticsvidhya.com/blog/2017/03/imbalanced-classification-problem/)
 
@@ -94,9 +94,9 @@ until 族不发生变化或达到最大迭代次数
 
 - RNNs的目的是处理序列数据。再传统的神经网络模型中，是从输入层到隐藏层再到输出层，层与层之间是全连接的，而每层之间的节点是无连接的。但是这种普通的神经网络对于很多问题却无能为力。例如，你要预测句子的下一个单词是什么，一般需要用到前面的单词，因为一个句子中前后单词并不是独立的。RNNs之所以称为循环神经网络，即一个序列的当前的输出与前面的输出有关。具体的表现形式为网络会对前面的信息进行记忆并应用于当前的输出的计算中，即**隐藏层之间的节点不再无连接而是有链接的，并且隐藏层的输入不仅包括输入层的输出还包括了上一时刻的隐藏层的输出**。
 
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/rnn1.jpg)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/rnn1.jpg)
 
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/rnn2.jpg)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/rnn2.jpg)
 
 - 你会发现，在图中：有一条单向流动的信息流是从输入单元到达隐藏单元的，与此同时另一条单向流动的信息流从隐藏单元到达输出单元。**在某些情况下，RNNs会打破后者的限制，引导信息从输出单元返回隐藏单元，这些被称为“Back Projections”，并且隐藏层的输入还包括上一隐藏层的状态，即隐藏层内的节点可以自连也可以互连**。 
 
@@ -125,13 +125,13 @@ until 族不发生变化或达到最大迭代次数
 
 ### RNN中为什么要采用tanh而不是Relu作为激活函数？
 
-![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/rnn21.png)
+![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/rnn21.png)
 
 那为什么同样的方法在RNN中不奏效呢？其实这一点Hinton在它的IRNN论文里面（arxiv：[[1504.00941\] A Simple Way to Initialize Recurrent Networks of Rectified Linear Units](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1504.00941)）是很明确的提到的：
 
 ![](https://pic1.zhimg.com/80/v2-2d19e8c9b39f40044853ea65f6edfb31_hd.jpg)
 
-![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/rnn22.png)
+![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/rnn22.png)
 
 ### RNN中的[梯度问题](https://blog.csdn.net/han_xiaoyang/article/details/51932536)
 
@@ -239,7 +239,7 @@ until 族不发生变化或达到最大迭代次数
 
 ### 特征工程
 
-![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/feature.jpg)
+![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/feature.jpg)
 
 ### 对比Sigmoid、Tanh、Relu这三个函数
 
@@ -263,23 +263,23 @@ until 族不发生变化或达到最大迭代次数
 
 - Leaky ReLU
 
-  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/Leaky-ReLU.png)
+  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/Leaky-ReLU.png)
 
 - ELU
 
-  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/ELU.png)
+  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/ELU.png)
 
 - sigmoid
 
-  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/sigmoid1.png)
+  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/sigmoid1.png)
 
 - tanh
 
-  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/tanh.png)
+  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/tanh.png)
 
 - ReLU
 
-  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/ReLU.png)
+  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/ReLU.png)
 
 ### 为什么引入非线性激励函数？
 
@@ -308,7 +308,7 @@ until 族不发生变化或达到最大迭代次数
 - 召回率recall=TP/(TP+FN)   == 全部正确的里面确实被认为是正确的
 - F1值： 2/F1 = 1/recall + 1/precision
 - ROC曲线：ROC空间是一个以伪阳率（FPR，false positive rate）为X轴，真阳率（TPR，true positive rate）为Y轴的二维坐标系所代表的平面。其中真阳率TPR = TP/P = recall， 伪阳率FPR=FP/N
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/recall-precision.png)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/recall-precision.png)
 
 ## 03-30
 
