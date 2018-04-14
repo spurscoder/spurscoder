@@ -1,0 +1,108 @@
+---
+layout: post
+title: "03.09到03.10.machinelearning"
+author: "Spurs"
+date: 2018-03-10 12:00:00
+tags:
+  - dinary
+  - everyday
+---
+
+[TOC]
+
+# MachineLearning
+
+## 2018-03-08
+
+### 林轩田
+
+- PLA(Perceptron Learning Algorithm)
+
+- ML分类：
+
+  - 二分类，多分类，回归
+
+  - 监督学习，非监督学习，半监督学习
+
+  - 增强学习(a 'very different' but natural way of learning)
+
+    reinforcement: learn with 'partial/implicit information' (often sequentially)
+
+  - batch supervised learning (成批)
+
+  - online supervised learning (在线)
+
+    online: hypothesis 'improves' through receiving data instances sequentially
+
+  - active (主动学习)
+
+  ---
+
+  - concrete features: 具体经过预处理的复杂的特征 the easy 'ones' for ML
+  - raw features: digit recognition problem, often need human or machines to convert to concrete ones.
+  - abstract: no (or little) physical meaning.
+
+  ---
+
+  - focus: binary classification or regression from a batch of supervised data with concrete features.
+
+- No free lunch
+
+- logistic regression 是在线性回归的基础上，对其进行逻辑函数得到[0,1]之间的结果
+
+  - f(x) = 1/(1+e^-x)   sigmoid function
+
+  - logistic regression: use
+
+    h(x) = 1 / ( 1 + exp^(-wTx))
+
+    to approximate target function f(x) = P(y|x)
+
+  - err: cross_entropy error ln(1 + exp(-ywx))
+
+  - gradient descent: for small j, wt+1 = wt - j梯度
+
+    gradient descent
+
+## 2018-03-09
+
+### [Peter's Notes](https://peterroelants.github.io/) is good for ML(day one)
+
+- How to implement a neural network Part 1 [Linear regression](https://peterroelants.github.io/posts/neural_network_implementation_part01/)
+
+  > - A very simple neural network
+  > - Concepts such as [target function ](http://peterroelants.github.io/posts/neural_network_implementation_part01/#Define-the-target-function)and [cost function](http://peterroelants.github.io/posts/neural_network_implementation_part01/#Define-the-cost-function)
+  > - [Gradient descent ](http://peterroelants.github.io/posts/neural_network_implementation_part01/#Gradient-descent)optimisation
+
+- How to implement a neural network [intermezzo 1](https://peterroelants.github.io/posts/neural_network_implementation_intermezzo01/)
+
+  > - The [logistic function](http://peterroelants.github.io/posts/neural_network_implementation_intermezzo01/#Logistic-function)
+  > - [Cross-entropy ](http://peterroelants.github.io/posts/neural_network_implementation_intermezzo01/#Cross-entropy-cost-function-for-the-logistic-function)cost function
+  > - 辅助理解[最大似然估计](https://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html) 、[深入浅出最大似然函数](https://www.jianshu.com/p/f1d3906e4a3e)
+
+- How to implement a neural network Part 2 [logistic regression](https://peterroelants.github.io/posts/neural_network_implementation_part02/)
+
+  > - The [logistic classification ](http://peterroelants.github.io/posts/neural_network_implementation_part02/#Logistic-function-and-cross-entropy-cost-function)model
+
+## 2018-03-10
+
+### Peter's Notes is good for ML(day two)
+
+- How to implement a neural network Part 3 [Hidden layer](https://peterroelants.github.io/posts/neural_network_implementation_part03/)
+- How to implement a neural network [intermezzo 2](https://peterroelants.github.io/posts/neural_network_implementation_intermezzo02/)
+- How to implement a neural network [Vectorization](https://peterroelants.github.io/posts/neural_network_implementation_part04/)
+- How to implement a neural network [Generalization of multiple layers](https://peterroelants.github.io/posts/neural_network_implementation_part05/)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-0.JPG)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-1.JPG)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-2.JPG)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-4.JPG)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-5.JPG)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-6.JPG)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/2018-03-11-7.JPG)
+
+## 2018-03-11
+
+
+
+### end
+

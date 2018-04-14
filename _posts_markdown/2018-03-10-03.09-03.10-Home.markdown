@@ -1,0 +1,300 @@
+---
+layout: post
+title: "03.09到03.10.home"
+author: "Spurs"
+date: 2018-03-10 12:00:00
+tags:
+  - dinary
+  - everyday
+---
+
+[TOC]
+
+### updated 0308
+
+### 2018-03-05 竞赛相关及各个博客
+
+- Kaggle -> [Titanic: Machine Learning from Disaster](https://www.kaggle.com/c/titanic) 
+
+  - [Introduction to Ensemble/Stacking in Python](https://www.kaggle.com/arthurtok/introduction-to-ensembling-stacking-in-python) is a good Introduction
+
+    In this Introduction, using five basic classifiers(four for level-1 classification, one for level-2 classification). 实现了一个基本的stacking. 如果想要取得好的成绩，需要实现多层的level或者多个basic classifiers which is unrelated。
+
+
+- In the above link, there are two important links.
+
+- The Official Blog of Kaggle.com -> [A Kaggle's Guid to Model Stacking in Practice](http://blog.kaggle.com/2016/12/27/a-kagglers-guide-to-model-stacking-in-practice/)
+
+    - Stacking (also called meta ensembling) is a model ensembling technique used to combine information from multiple predictive models to generate a new model. 
+
+- **Stacking Summary**:
+
+    - 各个基本model在各个folds上训练，目的是为了减弱相关性。
+    - 在基本model的基础上，得到的结果用于训练level-2的model或者models。
+    - 在level-2上，可以添加一些基本的特征。
+    - 对test实行同样的models，并且使用同样的策略。
+    - Stacking带来了一定复杂度，而收到的效益可能较小，但是各个参加比赛的选手都会选择使用Stacking。
+
+----
+
+- The Official Blog of Kaggle.com -> [Approaching (Almost) Any Machine Learning Problem](http://blog.kaggle.com/2016/07/21/approaching-almost-any-machine-learning-problem-abhishek-thakur/)
+  - An average data scientist deals with loads of data daily. Some say over _60-70%_ time is spent in data cleaning, munging and bringing data to a suitable format such that machine learning models can be applied on that data. **This post focuses on the second part**, i.e., applying machine learning models, including the preprocessing steps
+  - **This article is very important and very useful**.
+  - There are good blogs for the competition.
+- [fastml.com](http://fastml.com/) -> the author of this website is [zygmuntz](https://github.com/zygmuntz), and he shares some good [links](http://fastml.com/links/) for deeplearning.
+
+
+
+>  怎么加载训练好的词向量bin
+
+- 默认方法：
+
+  ```python
+  model.save('/model/word2vec.model')
+
+  new_model = gensim.models.Word2Vec.load('/model/word2vec.model')
+
+  new_model['computer']
+  ```
+
+- 下载的二进制bin类型：
+
+  ```python
+  import gensim
+  model = gensim.models.KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin', binary=True)
+  print(model['word'])
+  ```
+
+  ​
+
+### 2018-03-06 numpy
+
+- A good exam for [Numpy](https://www.machinelearningplus.com/101-numpy-exercises-python/) which contains 70 small questions. **Very Interesting**
+
+- ```python
+  # load data
+  for line in f:
+    line = ...
+  ```
+
+- A Sample of blending [code](https://github.com/emanuele/kaggle_pbr/blob/master/blend.py). Easy way for kagglers.
+
+  and another [code](https://github.com/MLWave/Kaggle-Ensemble-Guide/) for guide myself of blending which comes from MLWave.
+
+- [A brief overview of deep learning](https://yyue.blogspot.com/2015/01/a-brief-overview-of-deep-learning.html): this is random ponderings.
+
+
+
+### 2018-03-07 新计划
+
+1. 以后每个方面一个文件夹
+2. 从今天开始复习各个基础内容。算法、ML、DL、数学、刷题。
+
+
+### 2018-03-08 计算机基础知识
+
+- **位、字节、字、KB、MB**
+  **位**：“位(bit)”是电子计算机中最小的数据单位。每一位的状态只能是0或1。 
+  **字节**：8个二进制位构成1个“字节(Byte)”，它是存储空间的基本计量单位。1个字节可以储存1个英文字母或者半个汉字，换句话说：1个汉字占据2个字节的存储空间。 
+  **字**：“字”由若干个字节构成，字的位数叫做字长，不同档次的机器有不同的字长。例如一台8位机，它的1个字就等于1个字节，字长为8位。如果是一台16位机，那么，它的1个字就由2个字节构成，字长为16位。字是计算机进行数据处理和运算的单位。
+  **KB**：K表示1024，也就是2的10次方。1KB表示1K个Byte，也就是1024个字节。
+  **MB**：1MB = 220 Bytes = 1048576Bytes
+
+- 定义/计算机**内存**编辑 计算机**内存**又称主存。 大多数微机以字节为存储容量的基本**单位**，常用B代表字节（Byte），用KB表示千字节、MB表示兆字节、GB表示吉字节、TB表示太字节。
+
+- **大小根堆及其应用**
+
+  堆实际上是一棵完全二叉树，其任何一个非叶节点满足性质：
+
+  - 任何一个非叶节点的关键字不大于或者不小于其左右孩子节点的关键字。
+
+  - 其中，**大根堆和小根堆在海量数据的top N问题中，有着很好的时间复杂度**
+
+  - 具体实现方式：
+
+    - ```c++
+      void swap(uint32_t *array, uint32_t i, uint32_i j) {
+        assert(array);
+        uint32_t tmp = 0;
+        tmp = array[j];
+        array[j] = array[i];
+        array[i] = tmp;
+      }
+      ```
+
+    - ```c++
+      // 头文件
+      #include <stdlib.h>
+      #include <stdint.h>
+      #include <assert.h>
+      #include <string.h>
+      #include <stdio.h>
+      ```
+
+    - ```c++
+      // **大根堆实现**
+      void MaxHeapify(uint32_t *array, uint32_t heapSize, uint32_t currentNode)
+      {
+        uint32_t leftChild = 0, rightChild = 0, largest = 0;
+        leftChild = 2*currentNode + 1;
+        rightChild = 2*currentNode + 2;
+        if (leftChild < heapSize && array[leftChild] > array[currentNode])
+        	largest = leftChild;
+        else
+        	largest = currentNode;
+        if (rightChild < heapSize && array[rightChild] > array[currentNode])
+        	largest = rightChild;
+        if (largest != currentNode)
+        {
+        	Swap(array, largest, currentNode);
+        	MaxHeapify(array, heapSize, largest);
+        }
+      }
+
+      // goujian dagendui 
+      void MaxHeapCreat(uint32_t* array, uint32_t heapSize)
+      {
+      	int i = 0;
+      	for (i = heapSize / 2; i >= 0; i--)
+      	{
+      		MaxHeapify(array, heapSize, i);
+      	}
+      }
+      ```
+
+    - ```c++
+      // minHeap
+      void MinHeapify(uint32_t* array, uint32_t heapSize, uint32_t currentNode)
+      {
+      	uint32_t leftChild = 0, rightChild = 0, minimun = 0;
+      	leftChild = 2*currentNode + 1;
+      	rightChild = 2 * currentNode + 2;
+      	if (leftChild < heapSize && array[leftChild] < array[currentNode])
+      		minimun = leftChild;
+      	else
+      		minimun = currentNode;
+      	if (rightChild < heapSize && array[rightChild] < array[minimun])
+      		minimun = rightChild;
+      	if (minimun != currentNode)
+      	{
+      		Swap(array, minimun, currentNode);
+      		MinHeapify(array, heapSize, minimun);
+      	}
+      }
+
+      // goujian minheap
+      void MinHeapCreat(uint32_t* array, uint32_t heapSize)
+      {
+      	int i = 0;
+      	for(i = heapSize/2; i >= 0; i--)
+      	{
+      		MinHeapify(array, heapSize, i);
+      	}
+      }
+      ```
+
+    - 利用小根堆解决获取大量数据中最大的N个值，先构建一个拥有N个元素的小根堆。然后，将其余的元素插入到小根堆即可。
+
+      ```c++
+      /*maintain the top N numbers*/
+      void MinInsert(uint32_t* array, uint32_t heapSize, uint32_t elem)
+      {
+      	if (elem > array[0])
+      	{
+      		array[0] = elem;
+      		MinHeapify(array, heapSize, 0);
+      	}
+      }
+
+      /*maintain the low N Numbers*/
+      void MaxInsert(uint32_t *array, uint32_t heapSize, uint32_t elem)
+      {
+      	if (elem < array[0])
+      	{
+      		array[0] = elem;
+      		MaxHeapify(array, heapSize, elem);
+      	}
+      }
+      ```
+
+    - 调整一次堆的时间复杂堆为O(logN)。而建立堆的时间复杂度为O(NlogN)，所以整体时间复杂度为O(NlogN)。
+
+    - **相关面试问题**
+
+      > 1. 特点，堆排序是就地排序，辅助空间为O(1)。他是一个**不稳定**的排序算法。
+      >
+      > 2. 相关面试题目1：海量数据中选取最大的N个。
+      >
+      >    答：只需建立一个具有N个节点的小根堆即可，不停的往里插入节点。
+      >
+      > 3. 相关面试题目2：设计一个数据结构，其中包含两个函数，1.插入一个数字，2.或得中数。并估计时间复杂度。
+      >
+      >    答：使用大根堆和小根堆存储。
+      >
+      >    ​	使用大根堆存储较小的一半数字，使用小根堆存储较大的一半数字。
+      >
+      >    ​	插入数字时候，再O(logN)时间内将数字插入到对应的堆中，并适当移动根节点以保持两个堆数字相等(差一)，
+      >
+      >    ​	获取中数，在O(1)时间内找到中数。
+
+
+### 2018-03-09 set/map谈到hash_table/hash_map/hash_set
+
+- 一般来说：stl中的容器分两种：
+  - 序列式容器(vector/list/stack/queue/deque/heap)
+  - 关联式容器.关联式容器又分为set(集合)和map(映射表)两大类，以及这两大类的衍生体multiset(多键集合)和multimap(多键映射表)，这些容器均以RB-tree完成。此外，还有第3类关联式容器，如hashtable(散列表)，以及以hashtable为底层机制完成的hash_set(散列集合)/hash_map(散列映射表)/hash_multiset(散列多键集合)/hash_multimap(散列多键映射表)。***也就是说，set/map/multiset/multimap都内含一个RB-tree，而hash_set/hash_map/hash_multiset/hash_multimap都内含一个hashtable***。
+- **set/map/multiset/multimap**
+  - set，同map一样，所有元素都会根据元素的键值自动被排序，因为set/map两者的所有各种操作，都只是转而调用RB-tree的操作行为，不过，值得注意的是，两者都不允许两个元素有相同的键值。
+  - 不同的是：set的元素不像map那样可以同时拥有实值(value)和键值(key)，set元素的键值就是实值，实值就是键值，而map的所有元素都是pair，同时拥有实值(value)和键值(key)，pair的第一个元素被视为键值，第二个元素被视为实值。
+  - 至于multiset/multimap，他们的特性及用法和set/map完全相同，唯一的差别就在于它们允许键值重复，即所有的插入操作基于RB-tree的insert_equal()而非insert_unique()。
+
+
+- [**hash_set/hash_map/hash_multiset/hash_multimap**](http://blog.csdn.net/wds1181977/article/details/51424839)
+  - hash_set/hash_map，两者的一切操作都是基于hashtable之上。不同的是，hash_set同set一样，同时拥有实值和键值，且实质就是键值，键值就是实值，而hash_map同map一样，每一个元素同时拥有一个实值(value)和一个键值(key)，所以其使用方式，和上面的map基本相同。但由于hash_set/hash_map都是基于hashtable之上，所以不具备自动排序功能。为什么?因为hashtable没有自动排序功能。
+  - 至于hash_multiset/hash_multimap的特性与上面的multiset/multimap完全相同，唯一的差别就是它们hash_multiset/hash_multimap的底层实现机制是hashtable（而multiset/multimap，上面说了，底层实现机制是RB-tree），所以它们的元素都不会被自动排序，不过也都允许键值重复。
+  - 所以，综上，说白了，什么样的结构决定其什么样的性质，因为set/map/multiset/multimap都是基于RB-tree之上，所以有自动排序功能，而hash_set/hash_map/hash_multiset/hash_multimap都是基于hashtable之上，所以不含有自动排序功能，至于加个前缀multi_无非就是允许键值重复而已。
+- 补充一些链接
+  - 关于什么hash，请看blog内此篇[文章](http://blog.csdn.net/v_JULY_v/article/details/6256463)；
+  - 关于红黑树，请参看blog内系列[文章](http://blog.csdn.net/v_july_v/article/category/774945)，
+  - 关于hash_map的具体应用：请看[这里](http://blog.csdn.net/sdhongjun/article/details/4517325)，关于hash_set：请看[此文](http://blog.csdn.net/morewindows/article/details/7330323)。
+  - [十道海量数据处理面试题与十个方法大总结](http://blog.csdn.net/v_JULY_v/archive/2011/03/26/6279498.aspx)；
+  - [海量数据处理面试题集锦与Bit-map详解](http://blog.csdn.net/v_july_v/article/details/6685962)；
+  - [十一、从头到尾彻底解析Hash表算法](http://blog.csdn.net/v_JULY_v/archive/2011/03/17/6256463.aspx)；
+  - [海量数据处理之Bloom Filter详解](http://blog.csdn.net/v_july_v/article/details/6685894)；
+  - [从Trie树（字典树）谈到后缀树](http://blog.csdn.net/v_july_v/article/details/6897097)；
+  - [第三章续、Top K算法问题的实现](http://blog.csdn.net/v_JULY_v/archive/2011/05/08/6403777.aspx)；
+  - [第十章、如何给10^7个数据量的磁盘文件排序](http://blog.csdn.net/v_JULY_v/archive/2011/05/28/6451990.aspx)；
+  - [从B树、B+树、B*树谈到R 树](http://blog.csdn.net/v_JULY_v/archive/2011/06/07/6530142.aspx)；
+  - [第二十三、四章：杨氏矩阵查找，倒排索引关键词Hash不重复编码实践](http://blog.csdn.net/v_july_v/article/details/7085669)；
+  - [第二十六章：基于给定的文档生成倒排索引的编码与实践](http://blog.csdn.net/v_july_v/article/details/7109500)；
+  - [从Hadhoop框架与MapReduce模式中谈海量数据处理](http://blog.csdn.net/v_july_v/article/details/6704077)；
+  - [第十六~第二十章：全排列，跳台阶，奇偶排序，第一个只出现一次等问题](http://blog.csdn.net/v_july_v/article/details/6879101)；
+  - <http://blog.csdn.net/v_JULY_v/article/category/774945>；
+  - STL源码剖析第五章，侯捷著；
+  - 2012百度实习生招聘笔试题：<http://blog.csdn.net/hackbuteer1/article/details/7542774>；
+  - Redis/MongoDB绝佳站点：<http://blog.nosqlfan.com/>；
+  - 国外一面试题网站：<http://www.careercup.com/>。
+- [The-Art-Of-Programming-By-July](https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/Readme.md)
+
+
+- np.random.rand()和np.random.randn()的区别
+
+  > rand()产生一个[0,1)之间的随机数
+  >
+  > randn()产生一个符合正态分布的随机数，r(0,1)
+
+### 2018-03-10 jupyter 风格
+
+---
+
+- 可以修改jupyter界面风格的插件 https://github.com/dunovank/jupyter-themes
+- 可以修改jupyter的cell折叠 https://github.com/ipython-contrib/jupyter_contrib_nbextensions
+- 需要用到[nbconvert](https://github.com/jupyter/nbconvert) The **nbconvert** tool, `jupyter nbconvert`, converts notebooks to various other formats via [Jinja](http://jinja.pocoo.org/) templates. The nbconvert tool allows you to convert an `.ipynb` notebook file into various static formats including: html, md, pdf, latex.
+- [将jupyter发布到github上](https://www.jianshu.com/p/d78e9f741a79)
+
+---
+
+- ​
+
+### end
+

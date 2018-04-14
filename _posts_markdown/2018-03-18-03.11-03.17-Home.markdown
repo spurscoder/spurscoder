@@ -1,0 +1,215 @@
+---
+layout: post
+title: "03.11到03.17.home"
+author: "Spurs"
+date: 2018-03-18 12:40:00
+tags:
+  - dinary
+  - everyday
+  - home
+---
+
+[TOC]
+
+## 03-11
+
+###1.**发现一个奇怪的事情，```sudo pip install``` 的权限小于```sudo easy_install ```，原因是很多```pip```无法安装的包，并提示```permission deny```的时候，使用```sudo easy_install```总是可以解决。针对于系统版本的python而言。**
+
+## 03-12
+
+###1.python.sum()中的参数(axis=1)是将每一行进行相加，而keepdims是保证原来的维度不变
+
+```python
+sum([1,2,3]) 或者 sum([1,2,3], 3)
+sum([1,2,3],[1,2,3])是错误的
+
+而对于numpy则不是
+
+>>> import numpy as np  
+>>> a=np.sum([[0,1,2],[2,1,3]])  
+>>> a  
+9  
+>>> a.shape  
+()  
+>>> a=np.sum([[0,1,2],[2,1,3]],axis=0)  
+>>> a  
+array([2, 2, 5])  
+>>> a.shape  
+(3,)  
+>>> a=np.sum([[0,1,2],[2,1,3]],axis=1)  
+>>> a  
+array([3, 6])  
+>>> a.shape  
+(2,)  
+```
+###2.[numpy.array](https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html) 需要仔细研究一下
+
+###3.[tf.ConfigProto()](http://blog.csdn.net/dcrmg/article/details/79091941) 在创建session，和对session进行配置的时候
+
+- 记录设备指派情况
+- 自动选择运行设备
+- 限制GPU资源使用
+- 动态申请显存
+
+###4.[python进阶-itertools](http://wklken.me/posts/2013/08/20/python-extra-itertools.html#itertoolschainiterables) 无限迭代器，处理序列迭代器
+
+###5.[python进阶-collections](https://docs.python.org/2/library/collections.html) High-performance container datatypes
+
+> This module implements specialized container datatypes providing alternatives to Python’s general purpose built-in containers, [`dict`](https://docs.python.org/2/library/stdtypes.html#dict), `list`, [`set`](https://docs.python.org/2/library/stdtypes.html#set), and [`tuple`](https://docs.python.org/2/library/functions.html#tuple)
+
+## 03-13
+
+###1.[System Integrity Protection](https://www.jianshu.com/p/0572336a0771) ```restart  => command + R => csrutil disable => csrutil enable => csrutil status ``` 
+
+###2.[tf.nn.embedding_lookup](http://blog.csdn.net/uestc_c2_403/article/details/72779417) 选取一个张量里对应索引的元素值。
+
+```python
+import tensorflow as tf;  
+import numpy as np;  
+  
+c = np.random.random([10,1])  
+b = tf.nn.embedding_lookup(c, [1, 3])  
+  
+with tf.Session() as sess:  
+    sess.run(tf.initialize_all_variables())  
+    print sess.run(b)  
+    print c 
+```
+###3.[numpy.random](http://blog.csdn.net/pipisorry/article/details/39508417) 介绍了```np.random```其中有```np.random.randint(low, high, (m,n))```产生一个$mxn$的整数矩阵
+
+###4.[tf.random_uniform()](https://www.tensorflow.org/api_docs/python/tf/random_uniform) 
+
+```python
+tf.random_uniform(
+    shape,
+    minval=0,
+    maxval=None,
+    dtype=tf.float32,
+    seed=None,
+    name=None
+)
+```
+###5.[点乘和叉乘](http://blog.csdn.net/dcrmg/article/details/52416832) ```a * b``` 和```a X b``` 而且他们都不同于矩阵相乘。
+
+###6.***详细介绍了conv2d的参数情况，首先其参数不同于矩阵的各个方向，但是特殊定义的参数格式，需要单独读[tf.nn.conv2d](https://www.tensorflow.org/api_docs/python/tf/nn/conv2d)的介绍文档，其中两个博客介绍了具体参数的解释分别是[tf.nn.conv2d是怎样实现卷积的？](http://blog.csdn.net/mao_xiao_feng/article/details/53444333)和[tf.nn.conv2d()的工作方法](https://zhuanlan.zhihu.com/p/26139876)***
+
+图片辅助
+
+![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/conv2d_padding_test.jpg)
+
+![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/conv2d_padding_valid_same.jpg)
+
+###6.[tf.nn.max_pool](http://blog.csdn.net/mao_xiao_feng/article/details/53453926) 类似于```tf.nn.conv2d```.
+
+###7.```tf.nn.dropout```的介绍[博客](https://www.jianshu.com/p/c9f66bc8f96c)，[官方](https://www.tensorflow.org/api_docs/python/tf/nn/dropout)
+
+```python
+def dropout(x, keep_prob, noise_shape=None, seed=None, name=None)
+
+# 说白了，tensorflow中的dropout就是：使输入tensor中某些元素变为0，其它没变0的元素变为原来的1/keep_prob大小！
+```
+## 03-14
+
+###1.[tf.nn.xw_plus_b](https://www.tensorflow.org/api_docs/python/tf/nn/xw_plus_b) 相当于 ```matmul(x, weights) + biases```
+
+```python
+tf.nn.xw_plus_b(
+    x,
+    weights,
+    biases,
+    name=None
+)
+- x: a 2D tensor. Dimensions typically: batch, in_units
+- weights: a 2D tensor. Dimensions typically: in_units, out_units
+- biases: a 1D tensor. Dimensions: out_units
+- name: A name for the operation (optional). If not specified "xw_plus_b" is used.
+```
+###2.[tf.contrib.layers.xavier_initializer](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/xavier_initializer) 该函数返回一个用于初始化权重的初始化程序‘Xavier'
+
+这个初始化器是用来保持每一层的梯度大小都差不多相同。
+
+```python
+tf.contrib.layers.xavier_initializer(
+    uniform=True,
+    seed=None,
+    dtype=tf.float32
+)
+```
+###3.[tf.nn.l2_loss](https://www.tensorflow.org/api_docs/python/tf/nn/l2_loss)  === ```output = sum(t ** 2) / 2``` Computes half the L2 norm of a tensor without the `sqrt`
+
+```python
+tf.nn.l2_loss(
+    t,
+    name=None
+)
+Args:
+  t: A Tensor. Must be one of the following types: half, bfloat16, float32, float64. Typically 2-D, but may have any dimensions.
+  name: A name for the operation (optional).
+Returns:
+	A Tensor. Has the same type as t.
+```
+###4.[tf.argmax](https://www.tensorflow.org/api_docs/python/tf/argmax)  可以从不同维度进行索引[介绍](https://www.jianshu.com/p/469789141af7)
+
+```python
+tf.argmax(
+    input,
+    axis=None,
+    name=None,
+    dimension=None,
+    output_type=tf.int64
+)
+Args:
+  input: A Tensor. Must be one of the following types: float32, float64, int32, uint8, int16, int8, complex64, int64, qint8, quint8, qint32, bfloat16, uint16, complex128, half, uint32, uint64.
+  axis: A Tensor. Must be one of the following types: int32, int64. int32 or int64, must be in the range [-rank(input), rank(input)). Describes which axis of the input Tensor to reduce across. For vectors, use axis = 0.
+  output_type: An optional tf.DType from: tf.int32, tf.int64. Defaults to tf.int64.
+  name: A name for the operation (optional).
+Returns:
+	A Tensor of type output_type.
+```
+###5.[tf.reduce_mean](https://www.tensorflow.org/api_docs/python/tf/reduce_mean) 这里需要注意到参数类型```int32```还是`float64`需要区别对待，
+
+```python
+tf.reduce_mean(
+    input_tensor,
+    axis=None,
+    keepdims=None,
+    name=None,
+    reduction_indices=None,
+    keep_dims=None
+)
+for example:
+    x = tf.constant([[1., 1.], [2., 2.]])
+    tf.reduce_mean(x)  # 1.5
+    tf.reduce_mean(x, 0)  # [1.5, 1.5]
+    tf.reduce_mean(x, 1)  # [1.,  2.]
+for example:
+    x = tf.constant([1, 0, 1, 0])
+    tf.reduce_mean(x)  # 0
+    y = tf.constant([1., 0., 1., 0.])
+    tf.reduce_mean(y)  # 0.5
+```
+###6.[tf.nn.softmax_cross_entropy_with_logits](https://www.tensorflow.org/api_docs/python/tf/nn/softmax_cross_entropy_with_logits) 这个[博客](http://blog.csdn.net/john_xyz/article/details/61211422)中讲的很细致
+
+```python
+tf.nn.softmax_cross_entropy_with_logits(
+    _sentinel=None,
+    labels=None,
+    logits=None,
+    dim=-1,
+    name=None
+)
+result1 = tf.nn.softmax_cross_entropy_with_logits(labels=labels, logits=logits)
+result2 = -tf.reduce_sum(labels*tf.log(logits_scaled),1)
+result1 === result2
+```
+###7.[TensorFlow 深度学习笔记 TensorFlow实现与优化深度神经网络](http://www.cnblogs.com/hellocwh/p/5527141.html)
+
+## 03-17
+
+- [google的机器学习速成课程术语表](https://developers.google.cn/machine-learning/crash-course/glossary?hl=zh-CN) 还有[课程](https://developers.google.cn/machine-learning/crash-course/prereqs-and-prework?hl=zh-CN)
+- [Bazel - a fast, scalable, multi-language and extensible build system](https://www.bazel.build/), How to [install Bazel](https://docs.bazel.build/versions/master/install-os-x.html) 
+- [java](http://www.oracle.com/technetwork/cn/index.html) 软件下载网址，其中[java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 
+
+
+## end
+

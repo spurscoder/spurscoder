@@ -1,0 +1,82 @@
+---
+layout:	post 
+title:	"ltp和topic记录总结" 
+date:	2018-01-12 12:00:00 
+author:	"Spurs" 
+tags:
+    - ltp
+    - topic
+---
+
+
+## 分词和提取topic问题
+1. 分词还是用ltp原来的model文件最好，因为再分词、词性标注、语法分析、语义分析中，他们有一套完整的结构体系，如果我们自己进行分词，势必会导致一些与他们体系不适配的问题，很难解决。
+2. 而且，我发现他们原来的分词其实也有他们的道理，比如：能不能确实应该是分开的。一张也确实该分开。
+3. 当然他们也是有问题了，我们需要在分析他们问题的基础上，想办法解决问题，而不是直接从头开始训练分词，直到最后的语义分词。
+4. 除此之外，他们的其他版本有在线版本，可以免去环境的安装，只需要http请求就可以。本地版本就是现在一直用的model文件
+
+**明确topic是什么**
+> 例句 1：能不能帮我订机票 <br>
+> 例句 2：我女儿明天回美国上学 <br>
+
+## 携程酒店网页排版分析
+### 以`北京大方饭店`为例
+- 酒店都有id，对应的酒店的网址：[http://hotels.ctrip.com/hotel/691682.html](http://hotels.ctrip.com/hotel/691682.html)
+- 如何查到北京的酒店id，可以通过：[http://hotels.ctrip.com/hotel/beijing1](http://hotels.ctrip.com/hotel/beijing1)查看对应的id
+- 对于酒店id，可以通过[http://hotels.ctrip.com/hotel/beijing1/p2](http://hotels.ctrip.com/hotel/beijing1/p2)来查看
+- 对于点评，可以通过[http://hotels.ctrip.com/hotel/dianping/691682_p1t0.html](http://hotels.ctrip.com/hotel/dianping/691682_p1t0.html)来查看<br>
+
+**暂时没有发现携程有相应的`验证码`之类的反扒机制**
+
+### 2018-01-18 Summary Spider_hotels_comment
+- 酒店首页是静态网页，可以直接爬取。然而评论使用了Ajax技术，需要下点功夫。在Google上搜索携程爬虫却发现大多数人卡在了一个请求参数`[eleven]`处
+- 分析参数`[eleven]`: 
+	1. 首先，由于这个参数是客户端发送的，所以本地必然有相应的代码生成这个参数。就是js代码。那么他是那个js文件的代码片段呢？
+	2. 考虑在网页中点击某一页的事件触发过程。可知，点击某一页触发的事件，必然有相应的js代码接收，而对应的js代码就是我需要研究的代码片段。
+	3. 最终，跌跌撞撞弄清楚了js片段的含义。发现在生成`[eleven]`的时候，客户端发送了一次Get请求，请求了另一段复杂的js代码A。有代码段A生成了`[eleven]`. 
+	4. 而代码段A里有很多杂乱无用的code片段，而且每次都不同，由于时间紧，我就直接调用**phantomjs**运行之。```phantom runjs.js```. 
+	> **这里注意: 由于A中有document、window等浏览器环境下有的元素，所以用nodejs运行js代码A会有问题。所以我选择用phantomjs运行js代码A，就可以避免错误。**
+- 得到参数`[eleven]`之后，现在开始准备爬，相应[Spider代码](https://github.com/wangjiping55555/Scrapy-hotels.ctrip.com)
+	1. 使用了**scrapy**框架。详见[Scrapy文档](https://scrapy.org/)
+    2. 在[hotel_comment_spider.py](https://github.com/wangjiping55555/Scrapy-hotels.ctrip.com/blob/master/Spider_ctrip/spiders/hotel_comment_spider.py)中，嵌入了Ajax请求每一页的评论。
+    > 在Scrapy框架的使用中，学习到了如下：
+    > 1. 可以再settings.py中设置log的级别和log的输出方向(可以输出到文件中)。
+    > 2. 在start_urls中最好只填一个网址，后续的网页请求可以通过使用 `yield Request(url, callback=self.parse)`。
+    > 3. 理解了items.py middlewares.py pipelines.py settings.py的用途。
+- 其实，我感觉我的主要工作用在了分析参数`[eleven]`
+- 由于时间不急以及个人时间精力不多，所以[本爬虫](https://github.com/wangjiping55555/Scrapy-hotels.ctrip.com)可以慢慢的爬，不需要考虑禁ip的问题。
+- 正常来说，应当考虑以下：
+	1. 动态user-agent
+	2. 代理ip，代理ip池 [检测网站](http://icanhazip.com/)
+	3. 分布式爬虫
+	4. ......
+- 在实验室的服务器上部署这个小小的爬虫的时候遇到的问题：
+	1. 使用命令`nohup scrapy crawl comment 1> spider.log 2>&1 &`可以将程序运行在后台，并不依赖终端。
+	2. 对于log文件可能无限增长的问题:
+		> 1. 输出到/dev/null
+		> 2. 通过设置/etc/logrotate.d/中的文件来控制log文件大小。
+	3. 这样程序就在服务器上慢慢慢的跑起来了。
+
+**如果将来有时间，可以继续改进代码，实现一个快速爬虫的版本。**
+
+### Thanks For Reading 
+ :bowtie: :innocent: :heart: 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

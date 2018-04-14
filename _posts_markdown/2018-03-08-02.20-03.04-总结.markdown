@@ -1,0 +1,113 @@
+---
+layout: post
+title: "2018-02-20到2018-03-04的总结"
+author: "Spurs"
+date: 2018-03-08 12:00:00
+tags:
+  - dinary
+  - everyday
+---
+
+[TOC]
+
+### 2018-02-20
+
+> stdc++.h
+
+- Useful C++ "library"
+
+  `#include <bits/stdc++.h>` is a useful [library](http://codeforces.com/blog/entry/8387).
+
+  This let you use any C/C++ standard library without adding extra "includes".
+
+  **more information**
+
+  [Headers — GCC Documentation](http://gcc.gnu.org/onlinedocs/libstdc++/manual/using_headers.html)
+
+- The ideone.com
+
+  [Ideone](https://www.ideone.com/) is an online compiler and debugging tool which allows youto compile source code and execute it online in more than 60 programming languages.
+
+- Finding a new [blog](https://blog.kuoe0.tw/) type
+
+  [Harmono](https://kuoe0.github.com/harmono/) made by [KuoE0](https://blog.kuoe0.tw/) inspired by [Harmony](https://github.com/gayanvirajith/harmony). Powered by [Jekyll](http://jekyllrb.com/).
+
+- The python debugger
+
+  The Python Debugger [pdb](https://docs.python.org/3.5/library/pdb.html)
+
+  ​
+
+### 2018-02-27
+
+- [os.walk](https://www.jianshu.com/p/bbad16822eab)是一个高效的文件、目录遍历器
+- \_\_len\_\_, \_\_getitem\_\_, \_\_setitem\_\_, \_\_delitem\_\_:[魔法方法](http://blog.csdn.net/yuan_j_y/article/details/9317817)
+- [kaggle](https://www.kaggle.com/) is a good place for my practice.
+- ```from __future__ import . ``` [Python的特性，为了保持兼容性](https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386820023084e5263fe54fde4e4e8616597058cc4ba1000)
+
+------
+
+- ```python
+  # /usr/bin/python # 用于指明文件使用python来解释执行
+  # coding: utf-8 # 用于指明文件的编码格式
+  # -*- coding: utf-8 -*-
+  ```
+
+- 上面内容[更加详细的解释](https://www.crifan.com/python_head_meaning_for_usr_bin_python_coding_utf-8/)
+
+------
+
+- ```Python 
+  import string
+  string.punctuation
+  string.digits
+  ```
+
+- Kaggle is a nice place. Be Brave For Spoking English.
+
+- I'm full of power now.
+
+- [Kaggle入门](https://zhuanlan.zhihu.com/p/25686876)
+
+### 2018-02-28
+
+- ```import email``` 可以读取**.eml**文件。
+
+  ```python
+  import email
+  from email import policy
+  from email import BytesParser
+  filename = '*.eml'
+  with open(filename, 'rb') as fp:
+    msg = BytesParser(policy=policy.default).parse(fp)
+    text = msg.get_body(preferencelist=('plain'))
+  print(text)
+  ```
+
+- [Kagglers](https://www.kaggle.com/rankings) for Kaggle Rankings
+
+### 2018-03-02
+
+- Emsemble can be done using three methods called 
+
+  - bagging![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/bagging.jpg)
+
+  - boosting
+
+    ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/boosting.jpg)
+
+  - stacking
+
+    ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/stacking.jpg)
+
+- [**Coding theory**](https://en.wikipedia.org/wiki/Coding_theory) is the study of the properties of [codes](https://en.wikipedia.org/wiki/Code) and their respective fitness for specific applications. Codes are used for [data compression](https://en.wikipedia.org/wiki/Data_compression), [cryptography](https://en.wikipedia.org/wiki/Cryptography), [error-correction](https://en.wikipedia.org/wiki/Error-correction), and [networking](https://en.wikipedia.org/wiki/Network_coding). 
+
+  - Forward error correction: 前向纠错码，广泛的应用于信息传输。
+
+### 2018-03-04
+
+- [MLWare](https://mlwave.com/) is a good blog for ML
+  - [Kaggle Ensembling Guide](https://mlwave.com/kaggle-ensembling-guide/) Model ensembling is a very powerful technique to increase accuracy on a variety of ML tasks. In this article I will share my ensembling approaches for Kaggle compitition.
+- [Don't Overfit](https://www.kaggle.com/c/overfitting/discussion/593#3768) With nearly as many variables as training cases, what are the best techniques to avoid disaster?
+  - [Tim Salimans](https://github.com/TimSalimans) is a Kaggler who is one of the winner of this [competition](https://www.kaggle.com/timsalimans/discussion?sortBy=latestPost&group=commentsAndTopics&page=1&pageSize=20) 
+- [Forest Cover Type Prediction](https://www.kaggle.com/c/forest-cover-type-prediction/kernels?sortBy=date&group=everyone&pageSize=20&competitionId=3936) Use cartographic variables to classify forest categories
