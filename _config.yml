@@ -6,7 +6,7 @@
 # Site
 title: NexT
 subtitle:
-description:
+description: s1
 author: John Doe
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: en
@@ -232,7 +232,7 @@ social_icons:
 
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
-#avatar:
+avatar: http://example.com/avatar.png
 
 
 # Table Of Contents in the Sidebar
