@@ -66,7 +66,7 @@ feed:
 ## Docs: https://help.github.com/articles/configuring-jekyll-plugins/
 plugins:
 # jemoji conficts with toc in some no-ascii post
-# - jemoji
+ - jemoji
  - jekyll-sitemap
  - jekyll-feed
 
@@ -86,7 +86,7 @@ keywords: "Jekyll, NexT"
 rss:
 
 # Specify the date when the site was setup
-#since: 2015
+since: 2015
 
 # icon between year and author @Footer
 authoricon: heart
@@ -225,9 +225,9 @@ social_icons:
   enable: true
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
-  GitHub: github
-  Twitter: twitter
-  Weibo: weibo
+  GitHub: https://github.com/spurscoder
+  # Twitter: twitter
+  # Weibo: weibo
 
 
 # Sidebar Avatar
@@ -380,7 +380,7 @@ han: false
 # Disqus
 disqus:
   enable: false
-  shortname:
+  shortname: s3
   count: true
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
@@ -559,7 +559,7 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: false
+  enable: true
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto
