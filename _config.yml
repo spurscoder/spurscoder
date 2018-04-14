@@ -75,7 +75,7 @@ plugins:
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `assets/` directory.
-favicon: /assets/favicon.ico
+favicon: /assets/images/avatar.gif
 
 # Set default keywords (Use a comma to separate)
 keywords: "Jekyll, NexT"
@@ -233,7 +233,7 @@ social_icons:
 
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
-avatar: /assets/images/author.jpeg
+avatar: /assets/images/avatar.gif
 
 
 # Table Of Contents in the Sidebar
@@ -264,9 +264,9 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
-  display: post
+  #display: post
   #display: always
-  #display: hide
+  display: hide
   #display: remove
 
   # Sidebar offset from top menubar in pixels.
@@ -380,7 +380,7 @@ han: false
 
 # Disqus
 disqus:
-  enable: false
+  enable: true
   shortname: s3
   count: true
   # hide comments (visitors need to click to load the comments)
@@ -408,13 +408,13 @@ changyan:
 #livere_uid: your uid
 
 # Support for gitalk comments system.
-gitalk:
-  enable: false
-  clientID: # 54730ddf7b9420460c03
-  clientSecret: # c05684701b25ff1c19ea0c01ce4d80c125e0707d
-  repo: # colingpt.github.io
-  owner: # colingpt
-  admin: # colingpt
+# gitalk:
+#   enable: false
+#   clientID: # 54730ddf7b9420460c03
+#   clientSecret: # c05684701b25ff1c19ea0c01ce4d80c125e0707d
+#   repo: # colingpt.github.io
+#   owner: # colingpt
+#   admin: # colingpt
 
 # Baidu Share
 # Available value:
