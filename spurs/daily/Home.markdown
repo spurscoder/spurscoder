@@ -4,22 +4,21 @@ title: "04.09到04.15.home"
 author: "Spurs"
 date: 2018-04-15 12:40:00
 tags:
-  - dinary
-  - everyday
-  - home
 ---
 
-[TOC]
+> 04.09到04.15.home
+
+<!-- more -->
 
 ## 04-09
 
-### 1.剑指Offer中的代码实现。
+### 剑指Offer中的代码实现。
 
 ## 04-10
 
-### 1.Bias && Variance
+### Bias && Variance
 
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/bias_variances.png)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/bias_variances.png)
 
 - 左上角的示例是理想状况：偏差和方差都非常小。如果有无穷的训练数据，以及完美的模型算法，我们是有办法达成这样的情况的。然而，现实中的工程问题，通常数据量是有限的，而模型也是不完美的。因此，这只是一个理想状况。
 
@@ -47,7 +46,7 @@ tags:
   >
   > 随着训练的继续，Bias变得很小，输出值与真实值之间更加接近了。但是因为我们训练的很久了，Variance边的很大，因为我们除了学习到关于真实模型的信息，还学到了具体的只针对我们使用的模型的形象。而不同的可能的训练数据集（真实数据的子集）之间的某些特征和噪声不一致的。这就导致了我们再很多其他数据集上的就无法获得很好的效果。也就是所谓的Overfitting（过拟合）
 
-  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/tradeoff.png)
+  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/tradeoff.png)
 
   若模型复杂度小于平衡点，则模型的偏差会偏高，模型倾向于欠拟合；若模型复杂度大于平衡点，则模型的方差会偏高，模型倾向于过拟合。
 
@@ -65,7 +64,7 @@ tags:
 
 - 如何处理欠拟合和过拟合
 
-  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/tradeoff1.png)
+  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/tradeoff1.png)
 
   当模型处于欠拟合状态时，根本的办法是增加模型的复杂度。我们一般有以下一些办法：
 
@@ -80,7 +79,7 @@ tags:
   - 2）减少特征数量
   - 3）增加正则化权重：方差很高时，模型对训练集的拟合很好。实际上，模型很有可能拟合了训练数据集的噪声，拿到验证集上拟合效果就不好了。我们可以增加正则化权重，减小模型的复杂度。
 
-### 2.static和const进阶作用
+### static和const进阶作用
 
 static关键字至少有下列5个作用： 
 （1）函数体内static变量的作用范围为该函数体，不同于auto变量，该变量的内存只被分配一次，因此其值在下次调用时仍维持上次的值； 
@@ -96,7 +95,7 @@ const关键字至少有下列5个作用： 
 （4）对于类的成员函数，若指定其为const类型，则表明其是一个常函数，不能修改类的 成员变量； 
 （5）对于类的成员函数，有时候必须指定其返回值为const类型，以使得其返回值不为“左值”。
 
-### 3.类的继承问题
+### 类的继承问题
 
 - 什么是虚函数？什么是纯虚函数？基类为什么要用虚析构函数？
 
@@ -199,7 +198,7 @@ const关键字至少有下列5个作用： 
 
   相应地，将基类赋值给派生类称为向下转型（Downcasting）。
 
-- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/cpp_copy.png)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/cpp_copy.png)
 
   ```c++
   #include <iostream>
@@ -253,7 +252,7 @@ const关键字至少有下列5个作用： 
 
 - 概括起来说就是：编译器通过指针、对象、引用来访问成员变量，指针、对象、引用指向哪个对象就使用哪个对象的数据；编译器通过指针、对象、引用的类型来访问成员函数，指针属于哪个类的类型就使用哪个类的函数。
 
-### 3.虚函数
+### 虚函数
 
 - **通过基类指针只能访问派生类的成员变量，但是不能访问派生类的成员函数。**
 
@@ -389,7 +388,7 @@ const关键字至少有下列5个作用： 
 
   首先看成员函数所在的类是否会作为基类。然后看成员函数在类的继承后有无可能被更改功能，如果希望更改其功能的，一般应该将它声明为虚函数。如果成员函数在类被继承后功能不需修改，或派生类用不到该函数，则不要把它声明为虚函数。
 
-### 4.纯虚函数
+### 纯虚函数
 
 - 在C++中，可以将虚函数声明为纯虚函数，
 
@@ -416,7 +415,7 @@ const关键字至少有下列5个作用： 
 
 ## 04-12
 
-### 1.Python [fire](https://github.com/google/python-fire) 用于自动生成命令行界面的内容库
+### Python [fire](https://github.com/google/python-fire) 用于自动生成命令行界面的内容库
 
 ```python
 pip install fire
@@ -436,7 +435,7 @@ python calculator.py double 10  # 20
 python calculator.py double --number=15  # 30
 ```
 
-### 2.[Logistic Regression](https://blog.csdn.net/ligang_csdn/article/details/53838743)
+### [Logistic Regression](https://blog.csdn.net/ligang_csdn/article/details/53838743)
 
 梯度下降算法是一个很基本的算法，在机器学习和优化中有着非常重要的作用，本文首先介绍了梯度下降的基本概念，然后使用python实现了一个基本的梯度下降算法。梯度下降有很多的变种，本文只介绍最基础的梯度下降，也就是批梯度下降。
 
@@ -448,19 +447,19 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
 2. 构造预测函数
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/logistic_1.jpeg)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/logistic_1.jpeg)
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/logistic_2.jpeg)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/logistic_2.jpeg)
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/logistic_3.jpeg)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/logistic_3.jpeg)
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/logistic_4.jpeg)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/logistic_4.jpeg)
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/logistic_5.jpeg)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/logistic_5.jpeg)
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/logistic_6.jpeg)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/logistic_6.jpeg)
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/logistic_7.jpeg)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/logistic_7.jpeg)
 
 3. 构造Cost函数
 
@@ -468,7 +467,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
 5. 不断优化求权重
 
-### 3.神经网络基础问题
+### 神经网络基础问题
 
 1. Backpropagation
 
@@ -482,7 +481,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
      $a^{l+1} = f(z^{l+1})$
 
-     ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/bp_1.png)
+     ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/bp_1.png)
 
    - 计算整体损失函数
 
@@ -490,14 +489,14 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
      =$[1/m \sum_{i=1}^{m}(1/2||h_{W,b}(x^{i}) - y^{i}||^2)] + \lambda/2\sum_{l=1}^{n_l - 1}\sum_{i=1}^{s_l}\sum_{j=1}^{s_{l+1}}(W_{ji}^{l})^2$
 
-     ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/bp_2.png)
+     ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/bp_2.png)
 
 
-   - 然后针对第L层的每个节点计算出残差（这里是因为UFLDL中说的残差，**本质就是整体损失函数对每一层激活值Z的导数**），所以要对W求导，只要再乘上激活函数对W的导数即可
+-    然后针对第L层的每个节点计算出残差（这里是因为UFLDL中说的残差，**本质就是整体损失函数对每一层激活值Z的导数**），所以要对W求导，只要再乘上激活函数对W的导数即可
 
-     ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/bp_4.png)
+     ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/bp_4.png)
 
-     ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/bp_3.png)
+     ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/bp_3.png)
 
 
 1. 梯度消失、梯度爆炸
@@ -506,13 +505,13 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
    梯度爆炸：同理，出现在激活函数的激活区，而且权重W过大的情况下。但是梯度爆炸不如梯度消失出现的机会多。
 
-2. ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/activation_1.png)
+2. ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/activation_1.png)
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/activation_2.png)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/activation_2.png)
 
 3. 参数更新的方法
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/act_3.png)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/act_3.png)
 
 4. 解决Overfitting的方法
 
@@ -520,7 +519,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
    Batch Normalization是为了让输出都是单位高斯激活，方法是在链接和激活函数之间加入BatchNorm层，计算每个特征的均值和方差进行规则化。
 
-### 4.CNN问题
+### CNN问题
 
 1. 思想
 
@@ -543,7 +542,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
    图像领域的深层神经网络
 
-### 5.RNN问题
+### RNN问题
 
 1. RNN原理
 
@@ -555,11 +554,11 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
    - LSTM：因为LSTM有进有出且当前的cell information是通过input gate控制之后叠加的，RNN是叠乘，因此LSTM可以防止梯度消失和爆炸的情况。
 
-     ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/lstm_11.png)
+     ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/lstm_11.png)
 
    - GRU是LSTM的变体，将忘记门和输入门合成为一个单一的更新门。
 
-     ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/gru_11.png)
+     ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/gru_11.png)
 
 3. LSTM防止梯度弥散和爆炸
 
@@ -569,7 +568,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
    这个也就是word embedding，是一种高效的从原始语料中学习字词空间向量的预测模型。分为CBOW（continous Bag of Words）和Skip-Gram形式。其中CBOW是从原始语句推测目标词汇，而Skip-Gram相反。CBOW可以用于小语料库，SKip-Gram用于大语料库。
 
-### 6.GAN问题（不是很懂）
+### GAN问题（不是很懂）
 
 1. GAN的思想
 
@@ -579,7 +578,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
 3. GAN的实际计算方法
 
-### 7.决策树相关问题
+### 决策树相关问题
 
 1. 各种熵的计算
 
@@ -593,15 +592,15 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
    其中**信息增益衡量按照某个特征分割前后熵的减少程度为依据**
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/rf_1.png)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/rf_1.png)
 
    用上述信息增益会出现优先选择具有较多属性的特征，毕竟分的越细的属性确定性越高。所以提出了信息增益率的概念，让含有较多属性的特征的作用降低。
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/rf_2.png)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/rf_2.png)
 
    CART树在分类过程中使用的是基尼指数Gini，只能用于切分二叉树，而且和ID3、C4.5树不同，CART树不会在每一个步骤删除所用的特征。
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/rf_3.png)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/rf_3.png)
 
 3. 防止过拟合
 
@@ -617,7 +616,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
    样本个数小于阈值返回多类
 
-### 8.逻辑回归相关的问题
+### 逻辑回归相关的问题
 
 1. 公式推导
 
@@ -632,7 +631,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
    首先，LR和SVM最大的区别在于损失函数的选择，LR的损失函数为Log损失（或者说是逻辑损失都可以）、而SVM的损失函数为hinge loss。 
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/img/home/svm_1.png)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/svm_1.png)
 
    其次，两者都是线性模型。 
    最后，SVM只考虑支持向量（也就是和分类相关的少数点） 　
@@ -649,7 +648,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
    　　这里详细说一下牛顿法的基本原理和牛顿法的应用方式。牛顿法其实就是通过切线与x轴的交点不断更新切线的位置，直到达到曲线与x轴的交点得到方程解。在实际应用中我们因为常常要求解凸优化问题，也就是要求解函数一阶导数为0的位置，而牛顿法恰好可以给这种问题提供解决方法。实际应用中牛顿法首先选择一个点作为起始点，并进行一次二阶泰勒展开得到导数为0的点进行一个更新，直到达到要求，这时牛顿法也就成了二阶求解问题，比一阶方法更快。我们常常看到的x通常为一个多维向量，这也就引出了Hessian矩阵的概念（就是x的二阶导数矩阵）。缺点：牛顿法是定长迭代，没有步长因子，所以不能保证函数值稳定的下降，严重时甚至会失败。还有就是牛顿法要求函数一定是二阶可导的。而且计算Hessian矩阵的逆复杂度很大。 
    拟牛顿法： 不用二阶偏导而是构造出Hessian矩阵的近似正定对称矩阵的方法称为拟牛顿法。拟牛顿法的思路就是用一个特别的表达形式来模拟Hessian矩阵或者是他的逆使得表达式满足拟牛顿条件。主要有DFP法（逼近Hession的逆）、BFGS（直接逼近Hession矩阵）、 L-BFGS（可以减少BFGS所需的存储空间）。
 
-### 9.SVM相关问题
+### SVM相关问题
 
 1. 带核的SVM为什么能分类非线性问题
 
@@ -679,7 +678,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
    可以对数量多的类使得惩罚系数C越小表示越不重视，相反另数量少的类惩罚系数变大。
 
-### 10.Boosting和Bagging
+### Boosting和Bagging
 
 1. 随机森林
 
@@ -691,8 +690,8 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
    　　分类问题：采用Bagging投票的方式选择类别频次最高的 
    　　回归问题：直接取每颗树结果的平均值。
 
-   | 常见参数                                                     | 误差分析                                                     | 优点                                                         | 缺点                     |
-   | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------ |
+   | 常见参数                                   | 误差分析                                     | 优点                                       | 缺点           |
+   | -------------------------------------- | ---------------------------------------- | ---------------------------------------- | ------------ |
    | 1、树最大深度2、树的个数 3、节点上的最小样本数4、特征数(sqr(n)) | oob(out-of-bag)将各个树的未采样样本作为预测样本统计误差作为误分率 | 可以并行计算不需要特征选择可以总结出特征重要性可以处理缺失数据不需要额外设计测试集 | 在回归上不能输出连续结果 |
 
 2. Boosting之Adaboost
@@ -716,7 +715,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
    - 支持特征抽样
    - 在一定情况下支持并行，只有在建树的阶段才会用到，每个节点可以并行的寻找分裂特征。
 
-### 11.KNN和Kmeans
+### KNN和Kmeans
 
 1. KNN和Kmeans缺点
 
@@ -730,7 +729,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
    要求自定义K个聚类中心，然后人为的初始化聚类中心，通过不断增加新点变换中心位置得到最终结果。Kmean的缺点可以用Kmean++方法进行一些解决（思想是使得初始聚类中心之间的距离最大化）
 
-### 12.EM算法、HMM、CRF
+### EM算法、HMM、CRF
 
 1. EM算法
 
@@ -755,7 +754,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
    其根本还是在于基本的理念不同，一个是生成模型，一个是判别模型，这也就导致了求解方式的不同。
 
-### 13.常见的其他ML基础问题
+### 常见的其他ML基础问题
 
 1. 数据归一化（或者标准化、注意归一化和标准化的不同）的原因
 
@@ -802,19 +801,19 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
    - 采用Bagging/Boosting/ensemble等方法
    - 考虑数据的先验分布
 
-### 14.常见算法最好的讲解[地址](https://blog.csdn.net/woaidapaopao/article/details/63690692)
+### 常见算法最好的讲解[地址](https://blog.csdn.net/woaidapaopao/article/details/63690692)
 
 ## 04-13
 
 ## 04-14 各种回归问题终结
 
-### 15.线性回归
+### 线性回归
 
 > 线性回归才是真正的回归，而不像逻辑回归用于分类，其基本思想是用梯度下降法对最小二乘法形式的误差函数进行优化。单变量线性回归的基本形式是$y = ax + b$，用来拟合数据，比如房屋的面积和价格的关系
 
 [***线性回归博客***](https://blog.csdn.net/xbinworld/article/details/43919445)
 
-###16.ridge regression && Lasso regression
+### ridge regression && Lasso regression
 
 - ridge regression是在线性回归的基础上加了L2-norm
 
@@ -830,7 +829,7 @@ Logistic Regression虽然名字里带“回归”，但是它实际上是一种�
 
   [讲解地址](https://blog.csdn.net/xbinworld/article/details/44276389)
 
-### 17. Logistic regression && Softmax regression
+### Logistic regression && Softmax regression
 
 $$\min_{w} \quad L(w) = -\log \prod_{i=1}^{N}h(x_i)^{y_i}（1 - h(x_i))^{1-y_i}\\$$
 $$= -\sum_{i=1}^{N}[y_i\log h(x_i) +(1-y_i)\log (1-h(x_i))]\\$$
@@ -850,25 +849,15 @@ $$p(y^{(i)}=j|x^{(i)};w) = \frac{e^{w_j^Tx^{(i)}}}{\sum_{l=1}^{k}e^{w_l^Tx^{(i)}
 
 $$\min_{w} \quad J(w) = -\frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{k}\left[{\textbf{1}\{y^{(i)}=1\}}\log\frac{e^{w_j^Tx^{(i)}}}{\sum_{l=1}^{k}e^{w_l^Tx^{(i)}}}\right] + \frac{\lambda}{2}\sum_{j=1}^{k}\sum_{v=1}^{m}w_{jv}^2$$
 
-### 18.
-
-### 19.
-
-### 20.正态**分布**
+### 正态**分布**
 
 > （英语：normal distribution）又名**高斯分布**（英语：**Gaussian** distribution), 是一个非常常见的连续概率**分布**。 正态**分布**在统计学上十分重要，经常用在自然和社会科学来代表一个不明的随机变量。
 
-### 21.伯努利分布
+### 伯努利分布
 
 > 亦称“零一分布”、“两点分布”。称随机变量X有伯努利分布, 参数为p(0<p<1),如果它分别以概率p和1-p取1和0为值。EX= p,DX=p(1-p)。伯努利试验成功的次数服从伯努利分布,参数p是试验成功的概率。伯努利分布是一个离散型机率分布，是N=1时[二项分布](https://baike.baidu.com/item/%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83)的特殊情况，为纪念[瑞士](https://baike.baidu.com/item/%E7%91%9E%E5%A3%AB)科学家詹姆斯·[伯努利](https://baike.baidu.com/item/%E4%BC%AF%E5%8A%AA%E5%88%A9)(Jacob Bernoulli 或James Bernoulli)而命名。
 
-### 22.
-
-### 23.
-
-### 24.
-
-
+### 
 
 ## 04-15
 

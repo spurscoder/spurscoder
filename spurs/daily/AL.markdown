@@ -4,12 +4,11 @@ title: "04.09 04.15 编程题总结"
 author: "Spurs"
 date: 2018-04-15 13:30:00
 tags:
-  - dinary
-  - everyday
-  - algorithm
 ---
 
-[TOC]
+> 04.09 04.15 编程题总结
+
+<!-- more -->
 
 ###04-13
 
@@ -17,7 +16,7 @@ tags:
 
 -  递归解法
 
-  ```c++
+```c++
   class Solution {
   public:
       TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
@@ -28,7 +27,7 @@ tags:
           return left?left:right;
       }
   };
-  ```
+```
 
 - 非递归解法
 

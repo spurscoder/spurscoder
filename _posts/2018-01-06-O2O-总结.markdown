@@ -28,7 +28,7 @@
 * 评价标准：优惠券核销预测的平均AUC（ROC曲线下面积）。即对每个优惠券coupon_id单独计算核销预测的AUC值，再对所有优惠券的AUC值求平均作为最终的评价标准。 关于AUC的含义与具体计算方法，可参考维基百科
 
 ## 4. 数据描述及分析
-### 4.0.0.1. 数据描述
+### 4.1 数据描述
 * Table 1:  用户线下消费和优惠券领取行为，ccf_offline_stage1_train.csv
 * Table 2:  用户线上点击/消费和优惠券领取行为，ccf_online_stage1_train
 * Table 3： 用户O2O线下优惠券使用预测样本，ccf_offline_stage1_test_revised.csv
@@ -78,8 +78,8 @@
 |   Coupon_id   |      优惠券ID       |
 | Date_received |     领取优惠券日期      |
 |  Probability  | 15天内用券概率，由参赛选手给出 |
-### 4.0.0.2. 数据分析
-## 4.0.1. 初步分析
+### 4.2. 数据分析
+## 4.1. 初步分析
 #### TABLE 1 分析
 * 特点：
     + 标题：用户线下消费和优惠券领取行为

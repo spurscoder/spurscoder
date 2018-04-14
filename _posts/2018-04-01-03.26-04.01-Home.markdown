@@ -116,7 +116,6 @@ until 族不发生变化或达到最大迭代次数
 
 - [Recurrent Neural Networks Tutorial, Part 1 – Introduction to RNNs](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/)
 
-
 ### 循环神经网络（recurrent）和递归神经网络（recurcive）
 
 - RNN从时间和空间两个不同维度来看，主要有两种结构：Recurrent Neural Network(循环神经网络)和RecursiveNeural Network(递归神经网络)。主要对于前者进行学习。
@@ -125,13 +124,10 @@ until 族不发生变化或达到最大迭代次数
 
 ### RNN中为什么要采用tanh而不是Relu作为激活函数？
 
-![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/rnn21.png)
-
-那为什么同样的方法在RNN中不奏效呢？其实这一点Hinton在它的IRNN论文里面（arxiv：[[1504.00941\] A Simple Way to Initialize Recurrent Networks of Rectified Linear Units](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1504.00941)）是很明确的提到的：
-
-![](https://pic1.zhimg.com/80/v2-2d19e8c9b39f40044853ea65f6edfb31_hd.jpg)
-
-![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/rnn22.png)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/rnn21.png)
+- 那为什么同样的方法在RNN中不奏效呢？其实这一点Hinton在它的IRNN论文里面（arxiv：[[1504.00941] A Simple Way to Initialize Recurrent Networks of Rectified Linear Units](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1504.00941)）是很明确的提到的：
+- ![](https://pic1.zhimg.com/80/v2-2d19e8c9b39f40044853ea65f6edfb31_hd.jpg)
+- ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/rnn22.png)
 
 ### RNN中的[梯度问题](https://blog.csdn.net/han_xiaoyang/article/details/51932536)
 
@@ -308,8 +304,6 @@ until 族不发生变化或达到最大迭代次数
 - F1值： 2/F1 = 1/recall + 1/precision
 - ROC曲线：ROC空间是一个以伪阳率（FPR，false positive rate）为X轴，真阳率（TPR，true positive rate）为Y轴的二维坐标系所代表的平面。其中真阳率TPR = TP/P = recall， 伪阳率FPR=FP/N
 - ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/recall-precision.png)
-
-
 
 ## 03-30
 
