@@ -66,7 +66,7 @@ feed:
 ## Docs: https://help.github.com/articles/configuring-jekyll-plugins/
 plugins:
 # jemoji conficts with toc in some no-ascii post
- - jemoji
+#- jemoji
  - jekyll-sitemap
  - jekyll-feed
 
@@ -86,7 +86,7 @@ keywords: "Jekyll, NexT"
 rss:
 
 # Specify the date when the site was setup
-since: 2015
+since: 2017
 
 # icon between year and author @Footer
 authoricon: heart
@@ -151,8 +151,8 @@ menu_icons:
 
 # Schemes
 #scheme: Muse
-scheme: Mist
-#scheme: Pisces
+#scheme: Mist
+scheme: Pisces
 
 
 # ---------------------------------------------------------------
