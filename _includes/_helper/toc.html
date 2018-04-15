@@ -68,7 +68,7 @@
       {% continue %}
     {% endif %}
 
-    {% assign tag_begin = '<h' | append: level %}
+    {% assign tag_begin = '<h' | append: level | append: '>'%}
     {% assign tag_end = '</h' | append: level | append: '>'%}
 
     {% unless str contains tag_end %}
