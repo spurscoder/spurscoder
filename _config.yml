@@ -214,7 +214,7 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
   GitHub: https://github.com/spurscoder
-  # 知乎: http://www.zhihu.com/people/yaoyit
+  twitter: https://twitter.com/wangjiping55555
 
 
 # Social Links Icons
@@ -227,7 +227,7 @@ social_icons:
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
-  # Twitter: twitter
+  Twitter: twitter
   # Weibo: weibo
 
 

@@ -126,6 +126,7 @@ social:
 Set `rss` field in theme's `_config.yml`, as the following value:
 
 1. `rss: false` will totally disable feed link.
+
 2. `rss:  ` use sites' feed link. This is the default option.
 
     Follow the installation instruction in the plugin's README. After the configuration is done for this plugin, the feed link is ready too.
