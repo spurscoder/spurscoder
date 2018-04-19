@@ -146,7 +146,7 @@ echo "linux-image-4.10.0-27-generic hold" | dpkg --set-selections
 
   此时需要从`/usr/local/cuda-9.0/lib64/`copy到`/usr/local/lib/`，所有的都copy。
 
-####  5
+####  pexpect ssh自动登录
 
-
+代码[位置]()
 
