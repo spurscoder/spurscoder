@@ -148,5 +148,36 @@ echo "linux-image-4.10.0-27-generic hold" | dpkg --set-selections
 
 ####  pexpect ssh自动登录
 
-代码[位置]()
+代码[位置](https://github.com/spurscoder/spurscoder.github.io/tree/master/spurs/code/ssh.py)
+
+#### Terminator 终端切屏
+
+#### 多GPU，资源分配
+
+> - `"/cpu:0"`: The CPU of your machine.
+> - `"/device:GPU:0"`: The GPU of your machine, if you have one.
+> - `"/device:GPU:1"`: The second GPU of your machine, etc.
+
+```python
+with tf.device('/cpu:0'):
+with tf.device('/device:GPU:2'):
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+```
+
+[参考位置](https://blog.csdn.net/u014381600/article/details/72911262)
+
+#### 查找进程以及kill进程,查看GPU及进程
+
+- `ps -ef | grep python3`
+- `kill -9 pid`
+- `watch -n 1 -d nvidia-smi`
+- `top -u spurs`
+
+#### 1
+
+#### 1
+
+
+
+
 
