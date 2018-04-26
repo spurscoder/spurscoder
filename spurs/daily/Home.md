@@ -457,7 +457,7 @@ int main()
 
   说完BN的优势，自然可以知道什么时候用BN比较好。例如，在神经网络训练时遇到收敛速度很慢，或梯度爆炸等无法训练的状况时可以尝试BN来解决。另外，在一般使用情况下也可以加入BN来加快训练速度，提高模型精度。
 
-###  [深度学习系列（8）：激活函数](https://plushunter.github.io/2017/05/12/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%EF%BC%888%EF%BC%89%EF%BC%9A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/)
+#### [深度学习系列（8）：激活函数](https://plushunter.github.io/2017/05/12/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%EF%BC%888%EF%BC%89%EF%BC%9A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/)
 
 > 建议用ReLU非线性函数。但是要注意初始化和learning rate的设置，或许可以监控你的网络中死亡的神经元占的比例。如果单元死亡问题困扰你，就试试Leaky ReLU或者Maxout，不要再用sigmoid了。也可以试试tanh，但是其效果应该不如ReLU或者Maxout。
 
@@ -487,6 +487,12 @@ int main()
 
   实践时在深度学习和卷积神经网络中，使用L-BFGS之类的二阶方法并不常见。相反，基于（Nesterov的）动量更新的各种随机梯度下降方法更加常用，因为它们更加简单且容易扩展。
 
+
+#### [深度学习系列（1）：神经网络与反向传导算法](https://plushunter.github.io/2017/04/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%EF%BC%881%EF%BC%89%EF%BC%9A%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E5%AF%BC%E7%AE%97%E6%B3%95/)
+
+> 真的很好的博客
+
+### [很好的技术博客plushunter](https://plushunter.github.io/tech-stack/)
 
 
 
