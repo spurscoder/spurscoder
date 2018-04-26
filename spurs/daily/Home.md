@@ -372,15 +372,9 @@ int main()
 
      $$=g(Vf(Ux_t+Wf(Ux_{t-1}+Wf(Ux_{t-2}+Ws_{t-3 }))))$$
 
-   - $$\left[W_f\right]\left[\begin{array}{c}
-    h_{t-1}\\
-    x_t\\
-\end{array}\right]=\left[\begin{matrix}
-    W_{fh}&        W_{fx}\\
-\end{matrix}\right]\left[\begin{array}{c}
-    h_{t-1}\\
-    x_t\\
-\end{array}\right]=W_{fh}·h_{t-1}+W_{fx}x_t$$
+   - $$\left[\begin{array}{c}    s_{1}^{t}\\    s_{2}^{t}\\    ·\\    s_{n}^{t}\\\end{array}\right]=f\left(\left[\begin{matrix}    u_{11}&        u_{12}&        ··&        u_{1m}\\    u_{21}&        u_{22}&        ··&        u_{2m}\\    ·&        ·&        ·&        ·\\    u_{n1}&        u_{n2}&        ···&        u_{nm}\\\end{matrix}\right]\left[\begin{array}{c}    x_1\\    x_2\\    ···\\    x_m\\\end{array}\right]+\left[\begin{matrix}    w_{11}&        w_{12}&        ···&        w_{1n}\\    w_{21}&        w_{22}&        ···&        w_{2n}\\    ··&        ··&        ···&        ··\\    w_{n1}&        w_{n2}&        ···&        w_{nn}\\\end{matrix}\right]\left[\begin{array}{c}    s_{1}^{t-1}\\    s_{2}^{t-1}\\    ···\\    s_{n}^{t-1}\\\end{array}\right]\right)$$
+
+     ​
 
 
 - [深度学习系列（5）：长短时记忆网络（LSTM）](https://plushunter.github.io/2017/04/25/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%EF%BC%885%EF%BC%89%EF%BC%9A%E9%95%BF%E7%9F%AD%E6%97%B6%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C%EF%BC%88LSTM%EF%BC%89/)
@@ -394,21 +388,28 @@ int main()
   - 遗忘门
     $$f_t=\sigma(W_f·[h_{t-1,x_t}]+b_f)$$
 
-    $$\left[W_f\right]\left[\begin{array}{c}
+    ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/lstm-04-26-2.png)
 
-        h_{t-1}\\
-        x_t\\
-    \end{array}\right]=\left[\begin{matrix}
-        W_{fh}&        W_{fx}\\
-    \end{matrix}\right]\left[\begin{array}{c}
-        h_{t-1}\\
-        x_t\\
-    \end{array}\right]=W_{fh}·h_{t-1}+W_{fx}x_t$$
+  - 输入门
+
+    ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/lstm-04-26-3.png)
+
+    ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/lstm-04-26-4.png)
+
+    ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/lstm-04-26-5.png)
+
+  - 输出门
+
+    ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/lstm-04-26-6.png)
+
+    ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/lstm-04-26-7.png)
+
+- GRU是众多LSTM变体中最成功的一个
+
+  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/gru-04-26-0.png)
 
 
 - [深度学习系列（6）：递归神经网络](https://plushunter.github.io/2017/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%EF%BC%886%EF%BC%89%EF%BC%9A%E9%80%92%E5%BD%92%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/)
-
-- ​
 
 
 
