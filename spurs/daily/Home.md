@@ -30,7 +30,7 @@ tags:
 
    有一种选择是准确率-召回率曲线(P-R curve)，曲线下面积为AP分数（average precision score）
 
-   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/P_R_curve.png)
+   ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/P_R_cure.png)
 
    另一种选择是\\( $F_{\beta}$ \\)分数：
 
@@ -356,9 +356,59 @@ int main()
 
 ```sudo kill -9 PID```
 
+###  04-26
+
+#### RNN && LSTM && GRU
+
+-  [深度学习系列（4）：循环神经网络（RNN）](https://plushunter.github.io/2017/04/23/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%EF%BC%884%EF%BC%89%EF%BC%9A%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88RNN%EF%BC%89/)
+
+-  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/lstm_04-26.png)
+
+   - $$o_t=g(Vs_t)\\s_t=f(Ux_t+Ws_{t-1})$$
+
+   - $$o_t=g(Vs_t)=g(Vf(Ux_t+Ws_{t-1}))$$
+
+     $$=g(Vf(Ux_t+Wf(Ux_{t-1}+Ws_{t-2 })))$$
+
+     $$=g(Vf(Ux_t+Wf(Ux_{t-1}+Wf(Ux_{t-2}+Ws_{t-3 }))))$$
+
+   - $$\left[W_f\right]\left[\begin{array}{c}
+    h_{t-1}\\
+    x_t\\
+\end{array}\right]=\left[\begin{matrix}
+    W_{fh}&        W_{fx}\\
+\end{matrix}\right]\left[\begin{array}{c}
+    h_{t-1}\\
+    x_t\\
+\end{array}\right]=W_{fh}·h_{t-1}+W_{fx}x_t$$
 
 
+- [深度学习系列（5）：长短时记忆网络（LSTM）](https://plushunter.github.io/2017/04/25/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%EF%BC%885%EF%BC%89%EF%BC%9A%E9%95%BF%E7%9F%AD%E6%97%B6%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C%EF%BC%88LSTM%EF%BC%89/)
 
+  > LSTM用两个门来控制单元状态Cell的内容，一个是遗忘门（forget gate），它决定了上一时刻的单元状态$c_{t−1}$有多少保留到当前时刻$c_t$；另一个是输入门（input gate），他决定了当前时刻网络的输入$x_t$有多少保存到单元状态$c_t$。LSTM用输出门（output gate）来控制单元状态$c_t$有多少输出到LSTM的当前输出值$h_t$。
+
+  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/lstm-04-26-1.png)
+
+  ![](https://github.com/spurscoder/spurscoder.github.io/raw/master/spurs/image/general/rnn-04-26.png)
+
+  - 遗忘门
+    $$f_t=\sigma(W_f·[h_{t-1,x_t}]+b_f)$$
+
+    $$\left[W_f\right]\left[\begin{array}{c}
+
+        h_{t-1}\\
+        x_t\\
+    \end{array}\right]=\left[\begin{matrix}
+        W_{fh}&        W_{fx}\\
+    \end{matrix}\right]\left[\begin{array}{c}
+        h_{t-1}\\
+        x_t\\
+    \end{array}\right]=W_{fh}·h_{t-1}+W_{fx}x_t$$
+
+
+- [深度学习系列（6）：递归神经网络](https://plushunter.github.io/2017/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%EF%BC%886%EF%BC%89%EF%BC%9A%E9%80%92%E5%BD%92%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/)
+
+- ​
 
 
 
