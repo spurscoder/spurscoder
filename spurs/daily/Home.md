@@ -18,5 +18,15 @@ tags:
 
 <!-- more -->
 
-#### 05.07
+#### 05.08
+
+##### lru_cache
+
+> https://docs.python.org/3/library/functools.html
+>
+> http://kuanghy.github.io/2016/04/20/python-cache
+
+缓存是一种将定量数据加以保存以备迎合后续请求的处理方式，旨在加快数据的检索速度。
+
+通过用键值对的防止将数据放到字典中，如果下次需要取值时可以直接到字典中获取。
 
